@@ -30,14 +30,14 @@ export function Header() {
       <div className="mx-auto flex h-full max-w-[1400px] items-center justify-between px-6 lg:px-16">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src={assetPath("/brand/haby-tall-signature-green.png")}
-            alt="Haby Tall"
-            width={176}
-            height={72}
-            className="h-10 w-auto"
+            src={assetPath("/brand/haby-tall-monogram-green.png")}
+            alt="HT"
+            width={36}
+            height={36}
+            className="h-9 w-9"
             priority
           />
-          <span className="sr-only">
+          <span className="font-heading text-[20px] font-bold tracking-tight text-brand-green">
             Haby TALL
           </span>
         </Link>
