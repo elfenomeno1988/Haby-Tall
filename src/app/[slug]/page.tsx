@@ -25,12 +25,21 @@ const simplePages = {
       ["The Mad Ones", "Branding & identité de marque. Transformer une plateforme stratégique en expression visuelle forte, cohérente et différenciante."],
       ["Cabinet 86", "Réputation, e-réputation & communication de crise. Accompagner les sujets sensibles de perception, confiance et maîtrise du discours."],
       ["Formateurs & experts associés", "Prise de parole, media training, négociation, business game et posture professionnelle."],
+      ["Prestataires sélectionnés", "Web, vidéo, design, paid media, SEO et production. Les profils sont mobilisés selon le périmètre validé, jamais comme une addition automatique."],
+      ["Rôle de Haby TALL", "Clarifier le besoin, cadrer les priorités, coordonner les expertises et garder la cohérence stratégique de la mission."],
+      ["Quand mobiliser l’écosystème ?", "Lorsqu’un sujet demande une spécialité précise : identité visuelle, réputation, film, site web, campagne média, formation ou production."],
     ],
   },
   actualites: {
     title: "Actualités",
     intro:
       "Retrouvez ici les dernières nouvelles liées aux accompagnements, collaborations, interventions, formations, prises de parole, publications et projets en cours.",
+    blocks: [
+      ["Interventions & ateliers", "Cette section pourra annoncer les workshops, panels, masterclass et prises de parole autour de la marque, du digital growth et de la communication."],
+      ["Collaborations", "Les nouvelles collaborations avec partenaires, agences, équipes internes ou prestataires spécialisés seront présentées ici."],
+      ["Publications", "Les nouveaux articles, ressources, guides et contenus d’analyse pourront être relayés pour renforcer la visibilité organique."],
+      ["Projets en cours", "Un espace pour montrer que l’activité est vivante sans divulguer d’informations confidentielles sur les missions."],
+    ],
   },
   "medias-presse": {
     title: "Médias & Presse",
@@ -38,45 +47,90 @@ const simplePages = {
       "Cette page rassemble les interviews, prises de parole, publications, apparitions médias et ressources presse liées à l’activité de Haby TALL.",
     blocks: [
       ["Kit média", "Haby TALL est consultante en stratégie marketing, marque, communication 360 et digital growth. Elle accompagne les marques, PME, agences et dirigeants dans leurs enjeux de positionnement, croissance digitale, social media, activation, réputation et pilotage stratégique."],
+      ["Bio courte", "Haby TALL aide les marques à clarifier leur positionnement, structurer leur communication et activer les leviers digitaux nécessaires à leur croissance."],
+      ["Sujets d’intervention", "Stratégie de marque, communication 360, social media growth, acquisition, conversion, réputation, leadership communication et pilotage stratégique."],
+      ["Demandes médias", "Pour une interview, une citation, une intervention ou une prise de parole, utilisez la page contact afin de préciser le sujet, le média, le format et le délai."],
     ],
   },
   temoignages: {
     title: "Témoignages",
     intro:
       "Une sélection de retours clients viendra renforcer la preuve sociale autour des accompagnements, ateliers, diagnostics et dispositifs de croissance.",
+    blocks: [
+      ["Diagnostic & clarté", "“Le diagnostic nous a permis d’identifier le vrai blocage : notre offre était claire pour nous, mais pas pour nos prospects.”"],
+      ["Social media & conversion", "“Nous sommes passés d’une logique de publication à une logique de preuve, de demande et de suivi commercial.”"],
+      ["Repositionnement", "“Le travail de repositionnement a réaligné notre discours avec le niveau réel de notre marque.”"],
+      ["Pilotage", "“Le pilotage mensuel nous a aidés à arbitrer plus vite et à garder une cohérence dans nos actions.”"],
+    ],
   },
   "partenariats-prestataires": {
     title: "Partenariats prestataires",
     intro:
       "Vous souhaitez rejoindre un réseau de prestataires mobilisables sur des projets de stratégie, communication, digital growth ou production ? Présentez votre expertise, vos références et votre disponibilité.",
+    blocks: [
+      ["Profils recherchés", "Développement web, design, branding, production vidéo, motion design, shooting, paid media, SEO/SEA, CRM, social media et support commercial."],
+      ["Informations à préparer", "Métier, spécialité, portfolio, références, modalités de collaboration, disponibilité, pays d’intervention et contact professionnel."],
+      ["Mode de collaboration", "Les prestataires sont mobilisés selon le besoin, le périmètre validé, le niveau d’exigence et la compatibilité avec le projet."],
+      ["Prochaine étape", "Envoyez une présentation courte avec vos références et votre disponibilité via la page contact."],
+    ],
   },
   affiliations: {
     title: "Affiliations",
     intro:
       "Vous représentez un outil, une solution, une plateforme ou un service pouvant servir les marques accompagnées ? Présentez votre proposition afin qu’elle soit étudiée.",
+    blocks: [
+      ["Types de collaborations", "Outils marketing, CRM, analytics, social media, production, automatisation, hébergement, formation ou solutions métier."],
+      ["Informations attendues", "Entreprise, type de collaboration, outil ou service, marché ciblé, proposition de valeur, conditions de partenariat et contact."],
+      ["Critères de sélection", "Utilité réelle pour les marques accompagnées, fiabilité, qualité de l’expérience, clarté des conditions et cohérence avec l’éthique de recommandation."],
+      ["Cadre", "Toute affiliation ou recommandation commerciale doit rester transparente, pertinente et utile pour les clients."],
+    ],
   },
   "mentions-legales": {
     title: "Mentions légales",
     intro:
       "Le présent site est édité par Haby TALL, Brand, Marketing & Digital Growth Strategist, Abidjan, Côte d’Ivoire. Email, statut juridique, numéro d’immatriculation, numéro fiscal et hébergeur à compléter. L’ensemble des contenus présents sur ce site est protégé par les règles relatives à la propriété intellectuelle.",
+    blocks: [
+      ["Éditeur du site", "Haby TALL, Brand, Marketing & Digital Growth Strategist. Abidjan, Côte d’Ivoire. Les informations administratives complètes devront être ajoutées avant publication définitive."],
+      ["Hébergement", "Hébergeur, adresse, contact technique et informations légales à compléter selon la solution retenue pour la mise en ligne finale."],
+      ["Propriété intellectuelle", "Les textes, contenus, visuels, marques, éléments graphiques et ressources présents sur ce site sont protégés. Toute reproduction non autorisée est interdite."],
+      ["Responsabilité", "Les informations du site sont fournies à titre professionnel et peuvent évoluer. Les textes juridiques devront être relus par un professionnel du droit avant publication finale."],
+    ],
   },
   confidentialite: {
     title: "Politique de confidentialité",
     intro:
       "Les données collectées via les formulaires sont utilisées pour répondre aux demandes, analyser les briefs, proposer un accompagnement adapté, gérer la relation commerciale et améliorer le site. Les données ne sont pas vendues à des tiers.",
+    blocks: [
+      ["Données collectées", "Nom, entreprise, email, WhatsApp, pays, objet de la demande, message, informations de brief, contexte de projet et préférences de contact."],
+      ["Finalités", "Répondre aux demandes, analyser les briefs, orienter vers la bonne offre, préparer une proposition, gérer la relation commerciale et améliorer l’expérience du site."],
+      ["Confidentialité", "Les informations sensibles partagées dans un brief, un diagnostic ou une mission sont traitées avec discrétion et ne sont pas vendues à des tiers."],
+      ["Droits des utilisateurs", "Les utilisateurs peuvent demander l’accès, la rectification ou la suppression de leurs données en écrivant via le contact du site."],
+      ["Sous-traitance", "Certains partenaires peuvent être mobilisés dans le cadre d’une mission, uniquement lorsque cela sert le périmètre validé."],
+    ],
   },
   cookies: {
     title: "Politique de cookies",
     intro:
       "Le site peut utiliser des cookies nécessaires au fonctionnement, de mesure d’audience, de performance ou marketing si activés. Un bandeau cookies doit permettre d’accepter, refuser ou paramétrer les cookies non essentiels.",
+    blocks: [
+      ["Cookies nécessaires", "Ils permettent le bon fonctionnement du site, la navigation, la sécurité et l’accès aux fonctionnalités essentielles."],
+      ["Mesure d’audience", "Des outils d’analyse peuvent être activés pour comprendre les pages consultées, les parcours, les clics CTA et les conversions."],
+      ["Cookies marketing", "Ils peuvent être utilisés si des campagnes ou pixels publicitaires sont configurés. Ils doivent rester paramétrables par l’utilisateur."],
+      ["Gestion du consentement", "Un bandeau cookies devra permettre d’accepter, refuser ou personnaliser les cookies non essentiels avant publication finale."],
+    ],
   },
   cgv: {
     title: "Conditions générales de vente",
     intro:
       "Les CGV encadrent les prestations de conseil, stratégie marketing, communication, digital growth, social media, production, sites web, films, workshops et accompagnements. Les textes devront être relus par un professionnel du droit avant publication.",
     blocks: [
-      ["Cadre", "Devis valable 30 jours sauf mention contraire. Acompte possible avant démarrage. Budgets média, influence, outils et frais externes non inclus sauf mention contraire."],
+      ["Cadre", "Toute mission est encadrée par une proposition ou un devis précisant le périmètre, les livrables, les délais, les responsabilités et les conditions de validation."],
+      ["Prestations", "Conseil, stratégie marketing, communication, digital growth, social media, sites web, production, films, workshops, formations et accompagnements."],
+      ["Validation", "Toute validation de devis vaut acceptation du cadre de mission. Les éléments non mentionnés ne sont pas inclus automatiquement et peuvent faire l’objet d’un complément."],
+      ["Retours & livrables", "Les retours, allers-retours, formats de livraison, fichiers sources, droits tiers et éléments non retenus doivent être précisés dans le cadre de mission."],
       ["Confidentialité", "Les informations partagées dans un brief, diagnostic ou une mission sont traitées avec confidentialité."],
+      ["Sous-traitance", "Des partenaires ou prestataires peuvent être mobilisés selon les besoins, dans un cadre défini et au service de la mission validée."],
+      ["Important", "Cette page constitue un modèle de travail. Elle devra être relue, adaptée et validée par un professionnel du droit avant publication définitive."],
     ],
   },
 } as const;
