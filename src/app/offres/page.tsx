@@ -63,8 +63,7 @@ export default function Offres() {
                         <h3 className="font-heading text-[1.35rem] font-semibold leading-snug lg:text-[1.5rem]">{offer.title}</h3>
                         <p className="mt-3 text-[15px] leading-[1.6] text-brand-gray">{offer.promise}</p>
                       </div>
-                      <div className="mt-8 flex items-center justify-between border-t border-brand-border/40 pt-5">
-                        <span className="text-[15px] font-bold text-brand-anthracite">{offer.price}</span>
+                      <div className="mt-8 flex items-center justify-end border-t border-brand-border/40 pt-5">
                         <Link href="/contact" className="inline-flex items-center gap-1.5 text-[13px] font-bold text-brand-green group-hover:text-brand-green-light">
                           Demander <ArrowRight size={13} strokeWidth={2.5} className="transition-transform group-hover:translate-x-0.5" />
                         </Link>
