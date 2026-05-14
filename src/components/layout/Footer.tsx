@@ -2,133 +2,90 @@ import Link from "next/link";
 import Image from "next/image";
 import { mainNav } from "@/data/navigation";
 import { siteConfig } from "@/data/site-config";
-import { Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="relative bg-brand-green text-brand-offwhite overflow-hidden">
-      {/* Signature watermark — large, rotated, background accent */}
-      <Image
-        src="/brand/haby-tall-signature-white.png"
-        alt=""
-        width={700}
-        height={240}
-        className="pointer-events-none absolute right-0 top-1/2 w-[550px] -translate-y-1/2 translate-x-1/4 rotate-[-10deg] select-none opacity-[0.02]"
-        aria-hidden="true"
-      />
-
-      {/* Top bar */}
-      <div className="border-b border-brand-offwhite/8">
-        <div className="mx-auto flex max-w-[1400px] flex-col items-start justify-between gap-6 px-6 py-12 sm:flex-row sm:items-center lg:px-16">
-          <div className="flex items-center gap-4">
+    <footer className="border-t border-rule">
+      {/* Main row */}
+      <div className="container-editorial grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Brand */}
+        <div>
+          <div className="flex items-center gap-2.5">
             <Image
-              src="/brand/haby-tall-monogram-white.png"
+              src="/brand/haby-tall-monogram-green.png"
               alt="HT"
-              width={44}
-              height={44}
-              className="h-11 w-11 opacity-80"
+              width={24}
+              height={24}
+              className="h-6 w-6"
             />
-            <p className="font-heading text-2xl font-semibold">
+            <span className="font-heading text-sm font-semibold">
               {siteConfig.name}
-            </p>
+            </span>
           </div>
-          <p className="max-w-sm text-[15px] leading-relaxed text-brand-offwhite/40 italic">
+          <p className="mt-4 max-w-[240px] text-[13px] leading-relaxed text-muted">
             {siteConfig.tagline}
           </p>
         </div>
-      </div>
 
-      {/* Main grid */}
-      <div className="relative mx-auto max-w-[1400px] px-6 py-16 lg:px-16">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-brand-offwhite/30">
-              Navigation
-            </p>
-            <nav className="mt-6 flex flex-col gap-3">
-              {mainNav.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-[15px] text-brand-offwhite/50 transition-colors hover:text-brand-offwhite"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-brand-offwhite/30">
-              Contact
-            </p>
-            <div className="mt-6 flex flex-col gap-4">
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="flex items-center gap-3 text-[15px] text-brand-offwhite/50 transition-colors hover:text-brand-offwhite"
+        {/* Nav */}
+        <div>
+          <p className="section-label">Navigation</p>
+          <nav className="mt-4 flex flex-col gap-2.5">
+            {mainNav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-[13px] text-muted transition-colors hover:text-ink"
               >
-                <Mail size={16} className="shrink-0" />
-                {siteConfig.email}
-              </a>
-              <p className="flex items-center gap-3 text-[15px] text-brand-offwhite/50">
-                <MapPin size={16} className="shrink-0" />
-                {siteConfig.location}
-              </p>
-            </div>
-          </div>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
 
-          <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-brand-offwhite/30">
-              Réseaux
-            </p>
-            <div className="mt-6 flex flex-col gap-3">
-              <a
-                href={siteConfig.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[15px] text-brand-offwhite/50 transition-colors hover:text-brand-offwhite"
-              >
-                LinkedIn <ArrowUpRight size={13} />
-              </a>
-              <a
-                href={siteConfig.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[15px] text-brand-offwhite/50 transition-colors hover:text-brand-offwhite"
-              >
-                Instagram <ArrowUpRight size={13} />
-              </a>
-            </div>
+        {/* Contact */}
+        <div>
+          <p className="section-label">Contact</p>
+          <div className="mt-4 flex flex-col gap-2.5 text-[13px] text-muted">
+            <a href={`mailto:${siteConfig.email}`} className="hover:text-ink">
+              {siteConfig.email}
+            </a>
+            <p>{siteConfig.location}</p>
           </div>
+        </div>
 
-          <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-brand-offwhite/30">
-              Session de cadrage
-            </p>
-            <p className="mt-6 text-[15px] leading-relaxed text-brand-offwhite/40">
-              60 minutes pour clarifier votre besoin et identifier le bon format
-              d&apos;accompagnement.
-            </p>
-            <Link
-              href="/contact"
-              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-offwhite/70 transition-colors hover:text-brand-offwhite"
+        {/* Social */}
+        <div>
+          <p className="section-label">Social</p>
+          <div className="mt-4 flex flex-col gap-2.5 text-[13px]">
+            <a
+              href={siteConfig.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-muted hover:text-ink"
             >
-              Réserver <ArrowUpRight size={13} />
-            </Link>
+              LinkedIn <ArrowUpRight size={11} />
+            </a>
+            <a
+              href={siteConfig.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-muted hover:text-ink"
+            >
+              Instagram <ArrowUpRight size={11} />
+            </a>
           </div>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-brand-offwhite/8">
-        <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-6 lg:px-16">
-          <p className="text-xs text-brand-offwhite/25">
-            &copy; {new Date().getFullYear()} {siteConfig.name}. Tous droits
-            réservés.
+      <div className="border-t border-rule">
+        <div className="container-editorial flex items-center justify-between py-5">
+          <p className="text-[11px] text-faint">
+            &copy; {new Date().getFullYear()} {siteConfig.name}
           </p>
-          <p className="text-xs text-brand-offwhite/25">
-            {siteConfig.location}
-          </p>
+          <p className="text-[11px] text-faint">{siteConfig.location}</p>
         </div>
       </div>
     </footer>

@@ -1,34 +1,17 @@
 @import "tailwindcss";
 
-:root {
-  --brand-green: #1B4332;
-  --brand-green-light: #2D6A4F;
-  --brand-green-dark: #122B21;
-  --brand-offwhite: #FAF9F6;
-  --brand-cream: #F3F1EC;
-  --brand-black: #0A0A0A;
-  --brand-anthracite: #1A1A1A;
-  --brand-anthracite-light: #3D3D3D;
-  --brand-gray: #6B6B6B;
-  --brand-gray-light: #9A9A9A;
-  --brand-border: #E0DDD6;
-  --brand-accent: #1B4332;
-}
-
 @theme inline {
-  --color-brand-green: var(--brand-green);
-  --color-brand-green-light: var(--brand-green-light);
-  --color-brand-green-dark: var(--brand-green-dark);
-  --color-brand-offwhite: var(--brand-offwhite);
-  --color-brand-cream: var(--brand-cream);
-  --color-brand-black: var(--brand-black);
-  --color-brand-anthracite: var(--brand-anthracite);
-  --color-brand-anthracite-light: var(--brand-anthracite-light);
-  --color-brand-gray: var(--brand-gray);
-  --color-brand-gray-light: var(--brand-gray-light);
-  --color-brand-border: var(--brand-border);
-  --font-heading: var(--font-playfair);
-  --font-body: var(--font-inter);
+  --color-green: #1B4332;
+  --color-green-light: #2D6A4F;
+  --color-green-dark: #122B21;
+  --color-ink: #0A0A0A;
+  --color-paper: #FFFFFF;
+  --color-muted: #71717A;
+  --color-faint: #A1A1AA;
+  --color-rule: #E4E4E7;
+  --color-surface: #F8F8F8;
+  --font-heading: var(--font-sora);
+  --font-body: var(--font-dm-sans);
 }
 
 html {
@@ -37,67 +20,50 @@ html {
 }
 
 body {
-  background: var(--brand-offwhite);
-  color: var(--brand-anthracite);
+  background: var(--color-paper);
+  color: var(--color-ink);
   font-family: var(--font-body), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
 ::selection {
-  background: var(--brand-green);
-  color: var(--brand-offwhite);
+  background: var(--color-green);
+  color: var(--color-paper);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading), Georgia, "Times New Roman", serif;
-  color: var(--brand-anthracite);
-  letter-spacing: -0.025em;
-  line-height: 1.15;
+  font-family: var(--font-heading), system-ui, sans-serif;
+  color: var(--color-ink);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 600;
 }
 
 a {
   transition: color 0.2s ease, opacity 0.2s ease;
 }
 
-/* Eyebrow labels - the small uppercase text above headings */
-.eyebrow {
+/* Section label — monospace marker (01, 02, etc.) */
+.section-label {
+  font-family: ui-monospace, SFMono-Regular, monospace;
   font-size: 0.6875rem;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--brand-gray-light);
+  color: var(--color-faint);
 }
 
-/* Accent line - thin decorative horizontal rule */
-.accent-line {
-  width: 48px;
-  height: 2px;
-  background: var(--brand-green);
+/* Container */
+.container-editorial {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
 }
 
-/* Large decorative number for steps / lists */
-.step-number {
-  font-family: var(--font-heading), Georgia, serif;
-  font-size: 5rem;
-  font-weight: 600;
-  line-height: 1;
-  color: var(--brand-green);
-  opacity: 0.08;
-}
-
-/* Card with left accent border */
-.card-accent {
-  border-left: 3px solid var(--brand-green);
-  padding-left: 1.5rem;
-}
-
-/* Stat value styling */
-.stat-value {
-  font-family: var(--font-heading), Georgia, serif;
-  font-size: 4.5rem;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.03em;
+@media (min-width: 1024px) {
+  .container-editorial {
+    padding-inline: 2.5rem;
+  }
 }

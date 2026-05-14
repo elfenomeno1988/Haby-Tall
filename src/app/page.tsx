@@ -1,19 +1,17 @@
-import { HeroHome } from "@/components/sections/HeroHome";
-import { PersonasSection } from "@/components/sections/PersonasSection";
-import { MethodSection } from "@/components/sections/MethodSection";
-import { OffersPreview } from "@/components/sections/OffersPreview";
-import { StatsMobile } from "@/components/sections/StatsMobile";
-import { CtaFinal } from "@/components/sections/CtaFinal";
+import { Hero } from "@/components/sections/Hero";
+import { Situations } from "@/components/sections/Situations";
+import { Method } from "@/components/sections/Method";
+import { Offers } from "@/components/sections/Offers";
+import { Cta } from "@/components/sections/Cta";
 
 export default function Home() {
   return (
     <>
-      <HeroHome />
-      <PersonasSection />
-      <MethodSection />
-      <OffersPreview />
-      <StatsMobile />
-      <CtaFinal />
+      <Hero />
+      <Situations />
+      <Method />
+      <Offers />
+      <Cta />
     </>
   );
 }

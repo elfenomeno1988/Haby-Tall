@@ -1,200 +1,101 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
-import {
-  ArrowRight,
-  Building2,
-  Megaphone,
-  Lightbulb,
-  GraduationCap,
-} from "lucide-react";
-import { ScrollReveal, Stagger, StaggerItem } from "@/components/ui/ScrollReveal";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
-  title: "À propos",
-  description: "15+ ans d'expérience en stratégie de marque, marketing et croissance digitale.",
+  title: "A propos",
+  description: "Haby TALL — Brand, Marketing & Digital Growth Strategist.",
 };
 
-const parcours = [
-  { icon: Building2, title: "Agence", description: "Direction de projets stratégiques pour des marques nationales et internationales. Pilotage de campagnes 360, branding et digital." },
-  { icon: Megaphone, title: "Annonceur", description: "Responsabilité marketing et communication côté client. Vision terrain, contraintes business et exigences de résultats." },
-  { icon: Lightbulb, title: "Entrepreneuriat & Conseil", description: "Accompagnement de marques et de dirigeants dans la structuration de leur stratégie de croissance. Approche sur mesure." },
-  { icon: GraduationCap, title: "Formation", description: "MSc Marketing Digital. Transmission en écoles de commerce et workshops professionnels. Pédagogie orientée action." },
-];
-
-const convictions = [
-  "Une marque qui ne sait pas ce qu'elle porte ne peut pas communiquer avec clarté.",
-  "Le contenu sans stratégie n'est que du bruit. La stratégie sans contenu n'est qu'une intention.",
-  "La croissance durable passe par la cohérence, pas par la quantité.",
-  "Chaque levier activé doit servir un objectif business mesurable.",
-];
-
-export default function APropos() {
+export default function AProposPage() {
   return (
-    <>
-      {/* ═══ HERO ═══ */}
-      <section className="py-20 lg:py-28">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-16">
-          <ScrollReveal>
-            <div className="max-w-4xl">
-              <div className="mb-5 h-[2px] w-12 bg-brand-green" />
-              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-brand-gray-light">
-                À propos
-              </p>
-              <h1 className="mt-4 font-heading text-[clamp(2.8rem,5.5vw,5rem)] font-semibold leading-[1.06]">
-                Brand, Marketing
-                <br />& Digital Growth{" "}
-                <span className="font-normal italic text-brand-gray">Strategist</span>
-              </h1>
-              <p className="mt-5 max-w-2xl text-[18px] leading-[1.8] text-brand-gray">
-                Je n&apos;accompagne pas les marques pour &ldquo;faire plus de
-                communication&rdquo;. Je les aide à clarifier ce qu&apos;elles
-                portent, structurer ce qu&apos;elles doivent dire, activer les
-                bons leviers et piloter leur croissance avec cohérence.
-              </p>
-            </div>
-          </ScrollReveal>
-        </div>
+    <div className="pt-24 lg:pt-32">
+      {/* Hero */}
+      <section className="container-editorial pb-16 lg:pb-24">
+        <Reveal>
+          <span className="section-label">A propos</span>
+          <h1 className="mt-6 max-w-[700px] font-heading text-[clamp(2.4rem,5vw,4rem)] font-semibold leading-[1.05]">
+            Stratégie, clarté
+            <br />
+            et exécution
+          </h1>
+        </Reveal>
       </section>
 
-      {/* ═══ PARCOURS ═══ */}
-      <section className="bg-brand-cream/50 py-20 lg:py-28">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-16">
-          <ScrollReveal>
-            <div className="mb-12">
-              <div className="mb-5 h-[2px] w-12 bg-brand-green" />
-              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-brand-gray-light">Parcours</p>
-              <h2 className="mt-4 font-heading text-[clamp(2.2rem,4vw,3.5rem)] font-semibold leading-[1.1]">
-                15+ ans entre agence,
-                <br />annonceur{" "}
-                <span className="font-normal italic text-brand-gray">et conseil.</span>
+      <div className="border-t border-rule" />
+
+      {/* Story */}
+      <section className="container-editorial py-16 lg:py-24">
+        <div className="grid gap-16 lg:grid-cols-[1fr_1px_1fr]">
+          <Reveal>
+            <div className="relative">
+              <Image
+                src="/brand/haby-tall-monogram-green.png"
+                alt="Haby TALL"
+                width={120}
+                height={120}
+                className="h-28 w-28 opacity-10"
+              />
+              <p className="mt-8 text-[16px] leading-[1.8] text-muted">
+                Avec plus de 15 ans d&apos;expérience en stratégie de marque,
+                marketing et croissance digitale, j&apos;accompagne les
+                entreprises et les dirigeants dans la structuration de leur
+                positionnement, la clarification de leur discours et
+                l&apos;activation des bons leviers de croissance.
+              </p>
+              <p className="mt-6 text-[16px] leading-[1.8] text-muted">
+                Mon approche est à la fois stratégique et opérationnelle :
+                je ne me contente pas de recommander, je structure, je cadre
+                et j&apos;accompagne la mise en oeuvre.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="hidden bg-rule lg:block" />
+
+          <Reveal delay={0.15}>
+            <div>
+              <h2 className="font-heading text-[1.5rem] font-semibold">
+                Expertise
               </h2>
+              <div className="mt-6 space-y-4">
+                {[
+                  "Stratégie de marque & positionnement",
+                  "Communication 360 & brand content",
+                  "Stratégie digitale & social media",
+                  "Paid media & performance marketing",
+                  "Pilotage marketing & accompagnement dirigeant",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="border-b border-rule pb-4 text-[15px] text-ink"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
             </div>
-          </ScrollReveal>
-          <Stagger className="grid gap-6 md:grid-cols-2">
-            {parcours.map((item, i) => (
-              <StaggerItem key={item.title}>
-                <div className="relative overflow-hidden rounded-sm bg-brand-offwhite p-10 lg:p-12">
-                  <span className="pointer-events-none absolute -right-2 -top-4 select-none font-heading text-[8rem] font-bold leading-none text-brand-green/[0.03]">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div className="relative flex gap-6">
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm bg-brand-green/[0.06]">
-                      <item.icon size={24} className="text-brand-green" />
-                    </div>
-                    <div>
-                      <h3 className="font-heading text-[1.5rem] font-semibold">{item.title}</h3>
-                      <p className="mt-3 text-[15px] leading-[1.8] text-brand-gray">{item.description}</p>
-                    </div>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
+          </Reveal>
         </div>
       </section>
 
-      {/* ═══ CONVICTIONS ═══ */}
-      <section className="py-20 lg:py-28">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-16">
-          <div className="grid gap-14 lg:grid-cols-[380px_1fr] xl:grid-cols-[440px_1fr]">
-            <ScrollReveal>
-              <div>
-                <div className="mb-5 h-[2px] w-12 bg-brand-green" />
-                <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-brand-gray-light">Convictions</p>
-                <h2 className="mt-4 font-heading text-[clamp(2.2rem,4vw,3.5rem)] font-semibold leading-[1.1]">
-                  Ce que{" "}
-                  <span className="font-normal italic text-brand-gray">je crois.</span>
-                </h2>
-              </div>
-            </ScrollReveal>
-            <Stagger className="space-y-10">
-              {convictions.map((text, i) => (
-                <StaggerItem key={i}>
-                  <div className="flex gap-8 border-l-[3px] border-brand-green/12 pl-8">
-                    <span className="shrink-0 font-heading text-[3.5rem] font-semibold leading-none text-brand-green/10">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <p className="text-[18px] leading-[1.7] text-brand-anthracite italic lg:text-[20px]">
-                      {text}
-                    </p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </Stagger>
-          </div>
+      {/* CTA */}
+      <section className="border-t border-rule bg-surface py-16 lg:py-20">
+        <div className="container-editorial flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <p className="max-w-[400px] text-[16px] leading-relaxed text-muted">
+            Prêt(e) à clarifier votre stratégie ? Commencez par une session
+            de cadrage de 60 minutes.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-green px-7 py-3.5 text-[14px] font-semibold text-paper hover:bg-green-light"
+          >
+            Réserver <ArrowRight size={15} />
+          </Link>
         </div>
       </section>
-
-      {/* ═══ APPROCHE ═══ */}
-      <section className="relative overflow-hidden bg-brand-green py-20 lg:py-28">
-        <Image
-          src="/brand/haby-tall-monogram-white.png"
-          alt=""
-          width={500}
-          height={700}
-          aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-1/2 w-[500px] -translate-x-1/2 -translate-y-1/2 select-none opacity-[0.015]"
-        />
-        <div className="relative mx-auto max-w-[1400px] px-6 lg:px-16">
-          <div className="grid gap-14 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <div className="mb-5 h-[2px] w-12 bg-brand-offwhite/25" />
-                <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-brand-offwhite/35">Approche</p>
-                <h2 className="mt-4 font-heading text-[clamp(2.4rem,4.5vw,3.8rem)] font-semibold text-brand-offwhite leading-[1.08]">
-                  Stratégie d&apos;abord.
-                  <br />
-                  <span className="font-normal italic text-brand-offwhite/40">Toujours.</span>
-                </h2>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={0.15}>
-              <div className="space-y-6 text-[17px] leading-[1.8] text-brand-offwhite/50 lg:pt-4 lg:text-[18px]">
-                <p>Une marque peut être visible sans être comprise. Elle peut publier souvent sans créer de préférence. Elle peut investir en publicité sans convertir.</p>
-                <p>Mon rôle est de remettre de l&apos;ordre : dans la marque, les messages, les canaux, les contenus, les parcours et les décisions.</p>
-                <p>Je travaille avec un écosystème de partenaires spécialisés en branding, identité visuelle, production audiovisuelle, développement web, paid media et réputation.</p>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ CTA ═══ */}
-      <section className="relative overflow-hidden py-20 lg:py-28">
-        <Image
-          src="/brand/haby-tall-signature-green.png"
-          alt=""
-          width={400}
-          height={400}
-          aria-hidden="true"
-          className="pointer-events-none absolute bottom-0 right-0 w-[400px] select-none opacity-[0.04]"
-        />
-        <div className="relative mx-auto max-w-[1400px] px-6 lg:px-16">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <ScrollReveal>
-              <div>
-                <div className="mb-5 h-[2px] w-12 bg-brand-green" />
-                <h2 className="font-heading text-[clamp(2.4rem,4.5vw,3.8rem)] font-semibold leading-[1.08]">
-                  Envie d&apos;en{" "}
-                  <span className="font-normal italic text-brand-gray">discuter ?</span>
-                </h2>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <div className="lg:pl-16 lg:border-l lg:border-brand-border/40">
-                <p className="text-[18px] leading-[1.8] text-brand-gray">
-                  Commencez par une session de cadrage pour clarifier votre besoin, vos priorités et le bon format d&apos;accompagnement.
-                </p>
-                <Link href="/contact" className="mt-8 inline-flex items-center gap-3 rounded-sm bg-brand-green px-9 py-[18px] text-[15px] font-bold text-brand-offwhite transition-colors hover:bg-brand-green-light">
-                  Réserver un cadrage
-                  <ArrowRight size={17} strokeWidth={2.5} />
-                </Link>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-    </>
+    </div>
   );
 }

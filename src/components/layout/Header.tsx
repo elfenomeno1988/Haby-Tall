@@ -3,103 +3,121 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { mainNav } from "@/data/navigation";
+import { siteConfig } from "@/data/site-config";
 
 export function Header() {
+  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const { scrollY } = useScroll();
 
-  /* Morph values driven by scroll */
-  const headerHeight = useTransform(scrollY, [0, 120], [72, 64]);
-  const bgOpacity = useTransform(scrollY, [0, 120], [0.95, 0.98]);
-  const shadowOpacity = useTransform(scrollY, [0, 120], [0, 0.08]);
-  const borderOpacity = useTransform(scrollY, [0, 120], [0.15, 0.06]);
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", fn, { passive: true });
+    return () => window.removeEventListener("scroll", fn);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
   return (
-    <motion.header
-      style={{
-        height: headerHeight,
-        backgroundColor: `rgba(250,249,246,${bgOpacity.get()})`,
-        boxShadow: `0 1px 12px rgba(0,0,0,${shadowOpacity.get()})`,
-      }}
-      className="sticky top-0 z-50 border-b border-brand-border/15 bg-brand-offwhite/95 backdrop-blur-lg"
-    >
-      <div className="mx-auto flex h-full max-w-[1400px] items-center justify-between px-6 lg:px-16">
-        <Link href="/" className="flex items-center gap-3">
-          <Image
-            src="/brand/haby-tall-monogram-green.png"
-            alt="HT"
-            width={36}
-            height={36}
-            className="h-9 w-9"
-            priority
-          />
-          <span className="font-heading text-[20px] font-bold tracking-tight text-brand-green">
-            Haby TALL
-          </span>
-        </Link>
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-paper/90 backdrop-blur-md shadow-[0_1px_0_var(--color-rule)]"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="container-editorial flex h-16 items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2.5">
+            <Image
+              src="/brand/haby-tall-monogram-green.png"
+              alt="HT"
+              width={28}
+              height={28}
+              className="h-7 w-7"
+            />
+            <span className="font-heading text-[15px] font-semibold tracking-tight text-ink">
+              {siteConfig.name}
+            </span>
+          </Link>
 
-        <nav className="hidden items-center gap-9 md:flex">
-          {mainNav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-[13px] font-semibold uppercase tracking-[0.1em] text-brand-gray transition-colors hover:text-brand-anthracite"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <Link
-          href="/contact"
-          className="hidden items-center gap-2 rounded-sm bg-brand-green px-6 py-2.5 text-[13px] font-semibold text-brand-offwhite transition-colors hover:bg-brand-green-light md:inline-flex"
-        >
-          Réserver un cadrage
-          <ArrowRight size={14} />
-        </Link>
-
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-brand-anthracite"
-          aria-label="Menu"
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile menu */}
-      {open && (
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          className="border-t border-brand-border/40 bg-brand-offwhite px-6 pb-8 pt-6 md:hidden"
-        >
-          <nav className="flex flex-col gap-5">
-            {mainNav.map((item) => (
+          {/* Desktop nav */}
+          <nav className="hidden items-center gap-7 lg:flex">
+            {mainNav.slice(0, 4).map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={() => setOpen(false)}
-                className="text-lg font-medium text-brand-anthracite"
+                className="text-[13px] font-medium text-muted transition-colors hover:text-ink"
               >
                 {item.label}
               </Link>
             ))}
             <Link
               href="/contact"
-              onClick={() => setOpen(false)}
-              className="mt-4 inline-flex items-center justify-center gap-2 rounded-sm bg-brand-green px-6 py-3.5 text-[15px] font-semibold text-brand-offwhite"
+              className="bg-green px-5 py-2 text-[13px] font-semibold text-paper transition-colors hover:bg-green-light"
             >
-              Réserver un cadrage
-              <ArrowRight size={15} />
+              Cadrage &rarr;
             </Link>
           </nav>
-        </motion.div>
-      )}
-    </motion.header>
+
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="relative z-50 flex h-10 w-10 items-center justify-center lg:hidden"
+            aria-label="Menu"
+          >
+            <div className="flex flex-col gap-[5px]">
+              <span
+                className={`block h-[1.5px] w-5 bg-ink transition-all duration-300 ${
+                  open ? "translate-y-[3.25px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`block h-[1.5px] w-5 bg-ink transition-all duration-300 ${
+                  open ? "-translate-y-[3.25px] -rotate-45" : ""
+                }`}
+              />
+            </div>
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile fullscreen menu */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-40 flex flex-col justify-center bg-paper px-6 lg:hidden"
+          >
+            <nav className="flex flex-col">
+              {mainNav.map((item, i) => (
+                <motion.div
+                  key={item.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.06 }}
+                >
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="block border-b border-rule py-5 font-heading text-2xl font-semibold tracking-tight"
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

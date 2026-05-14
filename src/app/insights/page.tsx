@@ -1,69 +1,63 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Clock } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { blogPosts } from "@/data/blog-posts";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
   title: "Insights",
-  description: "Articles et réflexions sur la stratégie de marque et la croissance digitale.",
+  description: "Articles et réflexions sur la stratégie de marque et le marketing digital.",
 };
 
-export default function Insights() {
+export default function InsightsPage() {
   return (
-    <>
-      {/* ═══ HERO ═══ */}
-      <section className="py-20 lg:py-28">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-16">
-          <ScrollReveal>
-            <div className="max-w-4xl">
-              <div className="mb-5 h-[2px] w-12 bg-brand-green" />
-              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-brand-gray-light">Insights</p>
-              <h1 className="mt-4 font-heading text-[clamp(2.8rem,5.5vw,5rem)] font-semibold leading-[1.06]">
-                Réflexions sur la marque,
-                <br />le marketing{" "}
-                <span className="font-normal italic text-brand-gray">et la croissance.</span>
-              </h1>
-              <p className="mt-5 max-w-2xl text-[18px] leading-[1.8] text-brand-gray">
-                Des articles pour clarifier les enjeux stratégiques, décoder les tendances et partager des méthodes actionnables.
-              </p>
-            </div>
-          </ScrollReveal>
-        </div>
+    <div className="pt-24 lg:pt-32">
+      {/* Hero */}
+      <section className="container-editorial pb-16 lg:pb-24">
+        <Reveal>
+          <span className="section-label">Insights</span>
+          <h1 className="mt-6 max-w-[700px] font-heading text-[clamp(2.4rem,5vw,4rem)] font-semibold leading-[1.05]">
+            Réflexions sur
+            <br />
+            la stratégie et la croissance
+          </h1>
+        </Reveal>
       </section>
 
-      {/* ═══ ARTICLE LIST ═══ */}
-      <section className="pb-20 lg:pb-28">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-16">
-          <div className="divide-y divide-brand-border/50">
-            {blogPosts.map((post, i) => (
-              <ScrollReveal key={post.slug} delay={i * 0.1}>
-                <article className="group grid items-start gap-8 py-14 first:pt-0 lg:grid-cols-[220px_1fr_auto] lg:items-center lg:gap-14">
-                  {/* Meta */}
-                  <div>
-                    <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-brand-green">{post.categoryLabel}</span>
-                    <div className="mt-2 flex items-center gap-3 text-[13px] text-brand-gray-light">
-                      <span>{post.date}</span>
-                      <span className="h-1 w-1 rounded-full bg-brand-border" />
-                      <span className="flex items-center gap-1.5"><Clock size={12} />{post.readTime}</span>
-                    </div>
-                  </div>
-                  {/* Content */}
-                  <div>
-                    <h2 className="font-heading text-[1.5rem] font-semibold leading-snug lg:text-[1.8rem]">{post.title}</h2>
-                    <p className="mt-3 text-[16px] leading-[1.75] text-brand-gray">{post.excerpt}</p>
-                  </div>
-                  {/* CTA */}
-                  <span className="inline-flex shrink-0 items-center gap-2 text-[13px] font-bold text-brand-green group-hover:text-brand-green-light">
-                    Lire l&apos;article
-                    <ArrowRight size={15} strokeWidth={2.5} className="transition-transform group-hover:translate-x-0.5" />
+      <div className="border-t border-rule" />
+
+      {/* Posts */}
+      <section className="container-editorial py-14 lg:py-20">
+        <Stagger stagger={0.1}>
+          {blogPosts.map((post, i) => (
+            <StaggerItem key={i}>
+              <article className="grid gap-6 border-b border-rule py-10 lg:grid-cols-[120px_1fr] lg:py-12">
+                <div>
+                  <span className="section-label">{post.date}</span>
+                  <p className="mt-1 text-[11px] text-faint">{post.readTime}</p>
+                </div>
+                <div>
+                  <span className="mb-3 inline-block border border-rule px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-muted">
+                    {post.category}
                   </span>
-                </article>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
+                  <h2 className="font-heading text-[1.3rem] font-semibold leading-snug lg:text-[1.5rem]">
+                    {post.title}
+                  </h2>
+                  <p className="mt-3 max-w-[600px] text-[14px] leading-[1.7] text-muted">
+                    {post.excerpt}
+                  </p>
+                  <Link
+                    href="/contact"
+                    className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-green hover:text-green-light"
+                  >
+                    Lire la suite <ArrowRight size={13} />
+                  </Link>
+                </div>
+              </article>
+            </StaggerItem>
+          ))}
+        </Stagger>
       </section>
-    </>
+    </div>
   );
 }
