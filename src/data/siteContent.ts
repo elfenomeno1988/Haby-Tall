@@ -1,12 +1,15 @@
 import { offerList } from './offers';
 
+const assetPath = (path: string) =>
+  `${import.meta.env.BASE_URL.replace(/\/$/, '')}${path}`;
+
 export const brandAssets = {
-  monogramWhite: '/brand/haby-tall-monogram-white.png',
-  monogramBlack: '/brand/haby-tall-monogram-black.png',
-  monogramGreen: '/brand/haby-tall-monogram-green.png',
-  signatureBlack: '/brand/haby-tall-signature-black.png',
-  signatureGreen: '/brand/haby-tall-signature-green.png',
-  signatureWhite: '/brand/haby-tall-signature-white.png'
+  monogramWhite: assetPath('/brand/haby-tall-monogram-white.png'),
+  monogramBlack: assetPath('/brand/haby-tall-monogram-black.png'),
+  monogramGreen: assetPath('/brand/haby-tall-monogram-green.png'),
+  signatureBlack: assetPath('/brand/haby-tall-signature-black.png'),
+  signatureGreen: assetPath('/brand/haby-tall-signature-green.png'),
+  signatureWhite: assetPath('/brand/haby-tall-signature-white.png')
 };
 
 export const navLinks = [
