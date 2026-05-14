@@ -1,17 +1,20 @@
-import { Hero } from "@/components/sections/Hero";
-import { Situations } from "@/components/sections/Situations";
-import { Method } from "@/components/sections/Method";
-import { Offers } from "@/components/sections/Offers";
-import { Cta } from "@/components/sections/Cta";
+import { SlideTitle } from "@/components/sections/SlideTitle";
+import { SlideStatement } from "@/components/sections/SlideStatement";
+import { SlideStats } from "@/components/sections/SlideStats";
+import { SlideMethod } from "@/components/sections/SlideMethod";
+import { SlideOffers } from "@/components/sections/SlideOffers";
+import { SlideCta } from "@/components/sections/SlideCta";
+import { SnapContainer } from "@/components/sections/SnapContainer";
 
 export default function Home() {
   return (
-    <>
-      <Hero />
-      <Situations />
-      <Method />
-      <Offers />
-      <Cta />
-    </>
+    <SnapContainer>
+      <SlideTitle />
+      <SlideStatement />
+      <SlideStats />
+      <SlideMethod />
+      <SlideOffers />
+      <SlideCta />
+    </SnapContainer>
   );
 }

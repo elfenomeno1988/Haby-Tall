@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Sora, DM_Sans } from "next/font/google";
+import { Playfair_Display, Space_Grotesk } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { siteConfig } from "@/data/site-config";
 import "./globals.css";
 
-const sora = Sora({
-  variable: "--font-sora",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
   display: "swap",
 });
@@ -37,7 +37,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${sora.variable} ${dmSans.variable}`}>
+    <html
+      lang="fr"
+      className={`${playfair.variable} ${spaceGrotesk.variable}`}
+    >
       <body className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">{children}</main>
