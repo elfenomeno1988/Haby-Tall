@@ -1,26 +1,103 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand-green: #1B4332;
+  --brand-green-light: #2D6A4F;
+  --brand-green-dark: #122B21;
+  --brand-offwhite: #FAF9F6;
+  --brand-cream: #F3F1EC;
+  --brand-black: #0A0A0A;
+  --brand-anthracite: #1A1A1A;
+  --brand-anthracite-light: #3D3D3D;
+  --brand-gray: #6B6B6B;
+  --brand-gray-light: #9A9A9A;
+  --brand-border: #E0DDD6;
+  --brand-accent: #1B4332;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand-green: var(--brand-green);
+  --color-brand-green-light: var(--brand-green-light);
+  --color-brand-green-dark: var(--brand-green-dark);
+  --color-brand-offwhite: var(--brand-offwhite);
+  --color-brand-cream: var(--brand-cream);
+  --color-brand-black: var(--brand-black);
+  --color-brand-anthracite: var(--brand-anthracite);
+  --color-brand-anthracite-light: var(--brand-anthracite-light);
+  --color-brand-gray: var(--brand-gray);
+  --color-brand-gray-light: var(--brand-gray-light);
+  --color-brand-border: var(--brand-border);
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--brand-offwhite);
+  color: var(--brand-anthracite);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
+}
+
+::selection {
+  background: var(--brand-green);
+  color: var(--brand-offwhite);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), Georgia, "Times New Roman", serif;
+  color: var(--brand-anthracite);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+a {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Eyebrow labels - the small uppercase text above headings */
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--brand-gray-light);
+}
+
+/* Accent line - thin decorative horizontal rule */
+.accent-line {
+  width: 48px;
+  height: 2px;
+  background: var(--brand-green);
+}
+
+/* Large decorative number for steps / lists */
+.step-number {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--brand-green);
+  opacity: 0.08;
+}
+
+/* Card with left accent border */
+.card-accent {
+  border-left: 3px solid var(--brand-green);
+  padding-left: 1.5rem;
+}
+
+/* Stat value styling */
+.stat-value {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 4.5rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
 }
