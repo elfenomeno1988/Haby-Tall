@@ -17,76 +17,103 @@ export const offers: Offer[] = [
     family: "cadrage",
   },
   {
+    slug: "brief-cadrage-strategique",
+    title: "Brief de cadrage stratégique",
+    promise: "Qualifier le besoin et préparer une recommandation adaptée.",
+    price: "Gratuit",
+    family: "cadrage",
+  },
+  {
     slug: "diagnostic-360-brand-marketing-digital-growth",
     title: "Diagnostic 360",
-    promise:
-      "Identifier les vrais freins entre marque, contenus, canaux, parcours client et objectifs business.",
+    promise: "Identifier ce qui bloque entre marque, contenus, canaux et conversion.",
     price: "À partir de 650 000 FCFA",
     family: "cadrage",
   },
   {
     slug: "lancement-marque-strategie",
     title: "Fondation de marque & entrée en marché",
-    promise:
-      "Transformer une idée ou une activité intuitive en marque claire, crédible et prête au marché.",
+    promise: "Transformer une idée en marque claire, crédible et prête au marché.",
     price: "À partir de 1 000 000 FCFA",
     family: "cadrage",
   },
   {
-    slug: "strategie-social-media-growth",
-    title: "Social Media Growth & Brand Leadership",
-    promise:
-      "Transformer les réseaux sociaux en canal de marque, de preuve, de demande et de conversion.",
-    price: "À partir de 500 000 FCFA",
-    family: "social",
+    slug: "repositionnement-marque-montee-en-gamme",
+    title: "Repositionnement & montée en gamme",
+    promise: "Réaligner image, discours et supports avec l'ambition de la marque.",
+    price: "À partir de 2 000 000 FCFA",
+    family: "cadrage",
   },
   {
-    slug: "accompagnement-strategique-mensuel",
-    title: "Pilotage stratégique mensuel",
-    promise:
-      "Garder le cap, arbitrer les priorités et faire progresser les actions dans la durée.",
-    price: "À partir de 650 000 FCFA/mois",
-    family: "pilotage",
+    slug: "workshop-equipe-marketing-communication",
+    title: "Workshop équipe / alignement marque",
+    promise: "Aligner l'équipe sur les messages, la stratégie et les priorités.",
+    price: "À partir de 300 000 FCFA",
+    family: "cadrage",
   },
   {
     slug: "brand-to-demand-sprint",
     title: "Brand-to-Demand Sprint",
-    promise:
-      "Relier marque, contenu, paid media, influence, conversion et reporting en 3 mois.",
+    promise: "Relier marque, contenus, acquisition, conversion et reporting.",
     price: "À partir de 3 000 000 FCFA",
+    tag: "Sprint 3 mois",
     family: "activation",
   },
   {
-    slug: "repositionnement-marque-montee-en-gamme",
-    title: "Repositionnement & montée en gamme",
-    promise:
-      "Réaligner image, discours, supports et actions avec le niveau réel de la marque.",
-    price: "À partir de 2 000 000 FCFA",
+    slug: "strategie-social-media-growth",
+    title: "Social Media Growth",
+    promise: "Faire des réseaux un canal de preuve, de demande et de conversion.",
+    price: "Audit dès 500 000 FCFA",
     family: "activation",
   },
   {
-    slug: "optimisation-whatsapp-dm-to-sale",
+    slug: "pilotage-strategique-mensuel",
+    title: "Pilotage stratégique mensuel",
+    promise: "Garder le cap, arbitrer les priorités et faire progresser les actions.",
+    price: "À partir de 650 000 FCFA/mois",
+    family: "activation",
+  },
+  {
+    slug: "whatsapp-dm-to-sale",
     title: "WhatsApp / DM-to-Sale",
-    promise:
-      "Structurer le parcours entre contenu, DM, WhatsApp, relance et décision d'achat.",
+    promise: "Structurer le parcours entre contenu, DM, WhatsApp, relance et décision.",
     price: "Sur devis",
     family: "activation",
   },
   {
     slug: "strategie-linkedin-dirigeant",
     title: "Stratégie LinkedIn dirigeant",
-    promise:
-      "Transformer une expertise en prise de parole claire, crédible et régulière.",
+    promise: "Transformer l'expertise en prise de parole claire et crédible.",
     price: "Sur devis",
-    family: "social",
+    family: "activation",
   },
   {
-    slug: "workshop-equipe-marketing-communication",
-    title: "Workshop équipe",
-    promise:
-      "Aligner l'équipe sur les messages, la stratégie et les priorités de communication.",
+    slug: "site-web-landing-pages",
+    title: "Sites web & landing pages",
+    promise: "Créer des dispositifs web qui clarifient, rassurent et convertissent.",
+    price: "Sur devis",
+    family: "production",
+  },
+  {
+    slug: "films-publicitaires-brand-content",
+    title: "Films publicitaires & brand content",
+    promise: "Raconter la marque avec impact à partir d'un message clair.",
+    price: "Sur devis",
+    family: "production",
+  },
+  {
+    slug: "reputation-communication-sensible",
+    title: "Réputation & communication sensible",
+    promise: "Anticiper, cadrer ou protéger la perception d'une marque ou d'un dirigeant.",
+    price: "Sur devis",
+    family: "leadership",
+  },
+  {
+    slug: "formation-communication-leadership",
+    title: "Formation & leadership communication",
+    promise: "Prise de parole, media training, négociation, business game et posture.",
     price: "À partir de 300 000 FCFA",
-    family: "social",
+    family: "leadership",
   },
 ];
 
@@ -99,19 +126,16 @@ export const offerFamilies = [
   {
     id: "activation",
     title: "Activation & croissance digitale",
-    description:
-      "Déployer les leviers de croissance et générer de la demande.",
+    description: "Relier les leviers digitaux à la demande, la conversion et au pilotage.",
   },
   {
-    id: "social",
-    title: "Social Media & Leadership",
-    description:
-      "Construire une présence sociale qui crée de la préférence et des résultats.",
+    id: "production",
+    title: "Production & déploiement digital",
+    description: "Matérialiser la stratégie en site, landing pages, contenus et supports.",
   },
   {
-    id: "pilotage",
-    title: "Pilotage & accompagnement",
-    description:
-      "Un suivi stratégique continu pour maintenir le cap et scaler.",
+    id: "leadership",
+    title: "Réputation, formation & leadership",
+    description: "Protéger la perception et renforcer la prise de parole.",
   },
 ] as const;

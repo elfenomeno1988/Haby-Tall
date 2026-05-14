@@ -5,6 +5,25 @@ import { siteConfig } from "@/data/site-config";
 import { Mail, MapPin, ArrowUpRight } from "lucide-react";
 import { assetPath } from "@/lib/utils";
 
+const resourceLinks = [
+  { label: "Brief stratégique", href: "/brief-cadrage-strategique" },
+  { label: "Par où commencer ?", href: "/par-ou-commencer" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Lexique", href: "/lexique-marketing-digital-branding" },
+  { label: "Écosystème & Partenaires", href: "/ecosysteme-partenaires" },
+  { label: "Actualités", href: "/actualites" },
+  { label: "Médias & Presse", href: "/medias-presse" },
+  { label: "Partenariats prestataires", href: "/partenariats-prestataires" },
+  { label: "Affiliations", href: "/affiliations" },
+];
+
+const legalLinks = [
+  { label: "Mentions légales", href: "/mentions-legales" },
+  { label: "Confidentialité", href: "/confidentialite" },
+  { label: "Cookies", href: "/cookies" },
+  { label: "CGV", href: "/cgv" },
+];
+
 export function Footer() {
   return (
     <footer className="relative bg-brand-green text-brand-offwhite overflow-hidden">
@@ -33,7 +52,7 @@ export function Footer() {
               {siteConfig.name}
             </p>
           </div>
-          <p className="max-w-sm text-[15px] leading-relaxed text-brand-offwhite/40 italic">
+          <p className="max-w-sm text-[15px] leading-relaxed text-brand-offwhite/40">
             {siteConfig.tagline}
           </p>
         </div>
@@ -61,6 +80,19 @@ export function Footer() {
 
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-brand-offwhite/30">
+              Ressources
+            </p>
+            <nav className="mt-6 flex flex-col gap-3">
+              {resourceLinks.map((item) => (
+                <Link key={item.href} href={item.href} className="text-[15px] text-brand-offwhite/50 transition-colors hover:text-brand-offwhite">
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-brand-offwhite/30">
               Contact
             </p>
             <div className="mt-6 flex flex-col gap-4">
@@ -75,14 +107,6 @@ export function Footer() {
                 <MapPin size={16} className="shrink-0" />
                 {siteConfig.location}
               </p>
-            </div>
-          </div>
-
-          <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-brand-offwhite/30">
-              Réseaux
-            </p>
-            <div className="mt-6 flex flex-col gap-3">
               <a
                 href={siteConfig.linkedin}
                 target="_blank"
@@ -104,18 +128,15 @@ export function Footer() {
 
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-brand-offwhite/30">
-              Session de cadrage
+              Légal
             </p>
-            <p className="mt-6 text-[15px] leading-relaxed text-brand-offwhite/40">
-              60 minutes pour clarifier votre besoin et identifier le bon format
-              d&apos;accompagnement.
-            </p>
-            <Link
-              href="/contact"
-              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-offwhite/70 transition-colors hover:text-brand-offwhite"
-            >
-              Réserver <ArrowUpRight size={13} />
-            </Link>
+            <nav className="mt-6 flex flex-col gap-3">
+              {legalLinks.map((item) => (
+                <Link key={item.href} href={item.href} className="text-[15px] text-brand-offwhite/50 transition-colors hover:text-brand-offwhite">
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
           </div>
         </div>
       </div>

@@ -3,9 +3,9 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { assetPath } from "@/lib/utils";
 
 /**
- * PullQuote — Full-width italic quote band that acts as
+ * PullQuote — Full-width quote band that acts as
  * a visual divider between the Personas and Method sections.
- * Large Playfair italic, centered, with signature accent.
+ * Centered statement with signature accent.
  */
 export function PullQuote() {
   return (
@@ -24,9 +24,8 @@ export function PullQuote() {
         <ScrollReveal>
           <div className="mx-auto mb-5 h-[2px] w-10 bg-brand-green/30" />
 
-          <blockquote className="font-heading text-[clamp(1.5rem,3.2vw,2.4rem)] font-normal italic leading-[1.35] text-brand-anthracite">
-            &ldquo;La stratégie, c&apos;est l&apos;art de rendre visible ce
-            qui rend une marque irremplaçable.&rdquo;
+          <blockquote className="font-heading text-[clamp(1.35rem,2.6vw,2rem)] font-semibold leading-[1.35] text-brand-anthracite">
+            Clarté. Cohérence. Conversion.
           </blockquote>
 
           <div className="mt-6 flex items-center justify-center gap-3">

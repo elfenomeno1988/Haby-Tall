@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, MessageCircle, ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
@@ -12,6 +13,8 @@ export const metadata: Metadata = {
 };
 
 export default function Contact() {
+  const whatsappNumber = siteConfig.whatsapp.replace(/\D/g, "");
+
   return (
     <>
       {/* ═══ HERO ═══ */}
@@ -23,10 +26,10 @@ export default function Contact() {
               <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-brand-gray-light">Contact</p>
               <h1 className="mt-4 font-heading text-[clamp(2.8rem,5.5vw,5rem)] font-semibold leading-[1.06]">
                 Parlons de{" "}
-                <span className="font-normal italic text-brand-gray">votre projet.</span>
+                <span className="font-semibold text-brand-gray">votre projet.</span>
               </h1>
-              <p className="mt-5 max-w-2xl text-[18px] leading-[1.8] text-brand-gray">
-                Vous avez un besoin en stratégie de marque, marketing ou croissance digitale ? Commencez par un message ou réservez directement une session de cadrage.
+              <p className="mt-5 max-w-2xl text-[18px] leading-[1.6] text-brand-gray">
+                Une question, un projet ou un besoin à clarifier ? Choisissez le bon point d&apos;entrée.
               </p>
             </div>
           </ScrollReveal>
@@ -36,10 +39,23 @@ export default function Contact() {
       {/* ═══ FORM + SIDEBAR ═══ */}
       <section className="pb-20 lg:pb-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-16">
+          <div className="mb-14 grid gap-5 md:grid-cols-3">
+            {[
+              ["Demande générale", "Question simple, prise de contact, première demande", "Envoyer un message", "#contact-form"],
+              ["Demande d’accompagnement", "Mission de stratégie, communication, digital growth, production ou réputation", "Remplir le brief stratégique", "/brief-cadrage-strategique"],
+              ["Session de cadrage", "Clarifier le besoin en 60 minutes", "Réserver une session", "/session-cadrage-strategique"],
+            ].map(([title, text, cta, href]) => (
+              <Link key={title} href={href} className="rounded-sm border border-brand-border/60 bg-brand-cream/40 p-7 transition-colors hover:border-brand-green/40">
+                <h2 className="font-heading text-[1.25rem] font-bold">{title}</h2>
+                <p className="mt-3 min-h-[58px] text-[14px] leading-relaxed text-brand-gray">{text}</p>
+                <p className="mt-5 text-[13px] font-bold text-brand-green">{cta}</p>
+              </Link>
+            ))}
+          </div>
           <div className="grid gap-14 lg:grid-cols-[1fr_380px] xl:grid-cols-[1fr_420px]">
             {/* Form column */}
             <ScrollReveal variant="slide-left">
-              <div>
+              <div id="contact-form">
                 <h2 className="font-heading text-[1.8rem] font-semibold lg:text-[2.2rem]">Envoyer un message</h2>
                 <p className="mt-3 text-[16px] leading-relaxed text-brand-gray">Je reviens vers vous sous 24 à 48 heures.</p>
                 <ContactForm />
@@ -73,11 +89,11 @@ export default function Contact() {
                         </span>
                         {siteConfig.location}
                       </p>
-                      <a href={`https://wa.me/221000000000?text=${encodeURIComponent("Bonjour, je souhaite en savoir plus sur vos accompagnements.")}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[15px] text-brand-gray transition-colors hover:text-brand-anthracite">
+                      <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Bonjour, je souhaite en savoir plus sur vos accompagnements.")}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-[15px] text-brand-gray transition-colors hover:text-brand-anthracite">
                         <span className="flex h-11 w-11 items-center justify-center rounded-sm bg-brand-green/[0.06]">
                           <MessageCircle size={18} className="text-brand-green" />
                         </span>
-                        WhatsApp
+                        {siteConfig.whatsapp}
                       </a>
                     </div>
 

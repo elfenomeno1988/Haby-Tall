@@ -37,12 +37,12 @@ export function Header() {
             className="h-9 w-9"
             priority
           />
-          <span className="font-heading text-[20px] font-bold tracking-tight text-brand-green">
+          <span className="font-heading text-[20px] font-bold text-brand-green">
             Haby TALL
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-9 md:flex">
+        <nav className="hidden items-center gap-7 md:flex">
           {mainNav.map((item) => (
             <Link
               key={item.href}
@@ -55,10 +55,10 @@ export function Header() {
         </nav>
 
         <Link
-          href="/contact"
+          href="/brief-cadrage-strategique"
           className="hidden items-center gap-2 rounded-sm bg-brand-green px-6 py-2.5 text-[13px] font-semibold text-brand-offwhite transition-colors hover:bg-brand-green-light md:inline-flex"
         >
-          Réserver un cadrage
+          Brief stratégique
           <ArrowRight size={14} />
         </Link>
 
@@ -91,11 +91,11 @@ export function Header() {
               </Link>
             ))}
             <Link
-              href="/contact"
+              href="/brief-cadrage-strategique"
               onClick={() => setOpen(false)}
               className="mt-4 inline-flex items-center justify-center gap-2 rounded-sm bg-brand-green px-6 py-3.5 text-[15px] font-semibold text-brand-offwhite"
             >
-              Réserver un cadrage
+              Brief stratégique
               <ArrowRight size={15} />
             </Link>
           </nav>

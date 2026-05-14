@@ -7,11 +7,11 @@ import { ScrollReveal, Stagger, StaggerItem } from "@/components/ui/ScrollReveal
 import { assetPath } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Références",
+  title: "Réalisations",
   description: "Études de cas et résultats obtenus avec des marques en Afrique francophone.",
 };
 
-export default function References() {
+export default function Realisations() {
   return (
     <>
       {/* ═══ HERO ═══ */}
@@ -20,14 +20,14 @@ export default function References() {
           <ScrollReveal>
             <div className="max-w-4xl">
               <div className="mb-5 h-[2px] w-12 bg-brand-green" />
-              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-brand-gray-light">Références</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-brand-gray-light">Réalisations</p>
               <h1 className="mt-4 font-heading text-[clamp(2.8rem,5.5vw,5rem)] font-semibold leading-[1.06]">
                 Des résultats concrets,
                 <br />des marques{" "}
                 <span className="font-semibold text-brand-gray">transformées.</span>
               </h1>
               <p className="mt-5 max-w-2xl text-[18px] leading-[1.6] text-brand-gray">
-                Chaque mission commence par un enjeu clair et se termine par des résultats mesurables.
+                Chaque projet raconte une situation de marque : lancement, repositionnement, relance, structuration, visibilité, conversion ou montée en gamme.
               </p>
             </div>
           </ScrollReveal>

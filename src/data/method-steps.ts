@@ -4,7 +4,7 @@ export const methodSteps = [
     title: "Clarifier",
     tagline: "Comprendre avant d'agir",
     description:
-      "Avant d'investir en communication, comprendre ce qui bloque vraiment. Cette phase pose un diagnostic lucide de votre marque, votre marché et vos leviers.",
+      "Identifier le vrai blocage avant d'investir davantage.",
     details: [
       "Audit de marque et de positionnement",
       "Analyse de l'écosystème concurrentiel",
@@ -18,7 +18,7 @@ export const methodSteps = [
     title: "Structurer",
     tagline: "Poser les fondations stratégiques",
     description:
-      "Une marque claire, un message cohérent, une architecture de contenu solide. Transformer la vision en un système stratégique actionnable.",
+      "Transformer la vision en messages, priorités et parcours clairs.",
     details: [
       "Plateforme de marque et territoire d'expression",
       "Proposition de valeur et messages clés",
@@ -32,7 +32,7 @@ export const methodSteps = [
     title: "Activer",
     tagline: "Mettre en mouvement les bons leviers",
     description:
-      "Passer de la stratégie à l'action. Déployer les contenus, lancer les campagnes, activer les canaux de conversion, créer de la demande qualifiée.",
+      "Déployer les contenus, campagnes et canaux qui servent la demande.",
     details: [
       "Production de contenus stratégiques",
       "Déploiement social media et community management",
@@ -46,7 +46,7 @@ export const methodSteps = [
     title: "Piloter",
     tagline: "Mesurer, ajuster, scaler",
     description:
-      "La croissance durable passe par la mesure. Suivre les bons indicateurs, itérer sur ce qui fonctionne, scaler les meilleurs leviers.",
+      "Mesurer, arbitrer et renforcer ce qui fonctionne.",
     details: [
       "Tableaux de bord et reporting régulier",
       "Analyse des performances par canal",
