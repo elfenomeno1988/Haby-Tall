@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
@@ -29,13 +28,12 @@ export function Header() {
     >
       <div className="mx-auto flex h-full max-w-[1400px] items-center justify-between px-6 lg:px-16">
         <Link href="/" className="flex items-center gap-3">
-          <Image
-            src={assetPath("/brand/haby-tall-monogram-green.png")}
+          <img
+            src={assetPath("/brand/haby-tall-header-logo-green.png")}
             alt="HT"
-            width={36}
-            height={36}
-            className="h-9 w-9"
-            priority
+            width="36"
+            height="42"
+            className="h-10 w-9 object-contain"
           />
           <span className="font-heading text-[20px] font-bold text-brand-green">
             Haby TALL
