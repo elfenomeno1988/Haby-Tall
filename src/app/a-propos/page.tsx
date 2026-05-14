@@ -9,6 +9,7 @@ import {
   GraduationCap,
 } from "lucide-react";
 import { ScrollReveal, Stagger, StaggerItem } from "@/components/ui/ScrollReveal";
+import { assetPath } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "À propos",
@@ -129,7 +130,7 @@ export default function APropos() {
       {/* ═══ APPROCHE ═══ */}
       <section className="relative overflow-hidden bg-brand-green py-20 lg:py-28">
         <Image
-          src="/brand/haby-tall-monogram-white.png"
+          src={assetPath("/brand/haby-tall-monogram-white.png")}
           alt=""
           width={500}
           height={700}
@@ -163,7 +164,7 @@ export default function APropos() {
       {/* ═══ CTA ═══ */}
       <section className="relative overflow-hidden py-20 lg:py-28">
         <Image
-          src="/brand/haby-tall-signature-green.png"
+          src={assetPath("/brand/haby-tall-signature-green.png")}
           alt=""
           width={400}
           height={400}

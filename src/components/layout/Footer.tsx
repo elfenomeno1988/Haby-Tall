@@ -3,13 +3,14 @@ import Image from "next/image";
 import { mainNav } from "@/data/navigation";
 import { siteConfig } from "@/data/site-config";
 import { Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { assetPath } from "@/lib/utils";
 
 export function Footer() {
   return (
     <footer className="relative bg-brand-green text-brand-offwhite overflow-hidden">
       {/* Signature watermark — large, rotated, background accent */}
       <Image
-        src="/brand/haby-tall-signature-white.png"
+        src={assetPath("/brand/haby-tall-signature-white.png")}
         alt=""
         width={700}
         height={240}
@@ -22,7 +23,7 @@ export function Footer() {
         <div className="mx-auto flex max-w-[1400px] flex-col items-start justify-between gap-6 px-6 py-12 sm:flex-row sm:items-center lg:px-16">
           <div className="flex items-center gap-4">
             <Image
-              src="/brand/haby-tall-monogram-white.png"
+              src={assetPath("/brand/haby-tall-monogram-white.png")}
               alt="HT"
               width={44}
               height={44}

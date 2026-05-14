@@ -4,6 +4,7 @@ import { Mail, MapPin, MessageCircle, ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/data/site-config";
 import { ContactForm } from "@/components/ui/ContactForm";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { assetPath } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -50,7 +51,7 @@ export default function Contact() {
               <div className="lg:pt-2">
                 <div className="relative overflow-hidden rounded-sm border-l-[3px] border-brand-green bg-brand-cream/50 p-10 lg:p-12">
                   <Image
-                    src="/brand/haby-tall-monogram-green.png"
+                    src={assetPath("/brand/haby-tall-monogram-green.png")}
                     alt=""
                     width={200}
                     height={280}

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Search, Layers, Zap, BarChart3 } from "lucide-react";
 import { methodSteps } from "@/data/method-steps";
 import { ScrollReveal, Stagger, StaggerItem } from "@/components/ui/ScrollReveal";
+import { assetPath } from "@/lib/utils";
 
 const icons = [Search, Layers, Zap, BarChart3];
 
@@ -10,7 +11,7 @@ export function MethodSection() {
     <section className="relative bg-brand-green py-20 lg:py-28 overflow-hidden">
       {/* Monogram watermark — large, centered, ghosted */}
       <Image
-        src="/brand/haby-tall-monogram-white.png"
+        src={assetPath("/brand/haby-tall-monogram-white.png")}
         alt=""
         width={800}
         height={800}

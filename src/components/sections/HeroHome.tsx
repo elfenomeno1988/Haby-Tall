@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
+import { assetPath } from "@/lib/utils";
 
 /**
  * HeroHome — Full-bleed green hero with split layout.
@@ -24,7 +25,7 @@ export function HeroHome() {
       />
       {/* Signature watermark — large, rotated, subtle */}
       <Image
-        src="/brand/haby-tall-signature-white.png"
+        src={assetPath("/brand/haby-tall-signature-white.png")}
         alt=""
         width={600}
         height={200}

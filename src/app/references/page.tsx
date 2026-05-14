@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { references } from "@/data/references";
 import { ScrollReveal, Stagger, StaggerItem } from "@/components/ui/ScrollReveal";
+import { assetPath } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Références",
@@ -91,7 +92,7 @@ export default function References() {
       {/* ═══ CTA ═══ */}
       <section className="relative overflow-hidden bg-brand-green py-20 lg:py-28">
         <Image
-          src="/brand/haby-tall-monogram-white.png"
+          src={assetPath("/brand/haby-tall-monogram-white.png")}
           alt=""
           width={500}
           height={700}
