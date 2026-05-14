@@ -137,6 +137,10 @@ const simplePages = {
 
 export const dynamicParams = false;
 
+type PageProps = {
+  params: Promise<{ slug: string }>;
+};
+
 export function generateStaticParams() {
   return [
     ...allOfferPages.map((page) => ({ slug: page.slug })),
@@ -147,9 +151,10 @@ export function generateStaticParams() {
   ];
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const offerPage = allOfferPages.find((page) => page.slug === params.slug);
-  const simplePage = simplePages[params.slug as keyof typeof simplePages];
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const offerPage = allOfferPages.find((page) => page.slug === slug);
+  const simplePage = simplePages[slug as keyof typeof simplePages];
 
   return {
     title: offerPage?.title ?? simplePage?.title ?? "Haby TALL",
@@ -363,12 +368,14 @@ function SimplePage({ slug }: { slug: keyof typeof simplePages }) {
   );
 }
 
-export default function DynamicPage({ params }: { params: { slug: string } }) {
-  if (allOfferPages.some((page) => page.slug === params.slug)) return <OfferPage slug={params.slug} />;
-  if (params.slug === "par-ou-commencer") return <StartPage />;
-  if (params.slug === "methode") return <MethodPage />;
-  if (params.slug === "faq") return <FaqPage />;
-  if (params.slug === "lexique-marketing-digital-branding") return <LexiconPage />;
-  if (params.slug in simplePages) return <SimplePage slug={params.slug as keyof typeof simplePages} />;
+export default async function DynamicPage({ params }: PageProps) {
+  const { slug } = await params;
+
+  if (allOfferPages.some((page) => page.slug === slug)) return <OfferPage slug={slug} />;
+  if (slug === "par-ou-commencer") return <StartPage />;
+  if (slug === "methode") return <MethodPage />;
+  if (slug === "faq") return <FaqPage />;
+  if (slug === "lexique-marketing-digital-branding") return <LexiconPage />;
+  if (slug in simplePages) return <SimplePage slug={slug as keyof typeof simplePages} />;
   notFound();
 }
