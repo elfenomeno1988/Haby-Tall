@@ -1,77 +1,50 @@
-import { ArrowRight, BarChart3, Compass, Layers3, Zap } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import { methodSteps } from '../data/siteContent';
-
-const icons = [Compass, Layers3, Zap, BarChart3];
-const deeper = [
-  'Une demande de visibilité peut cacher un problème de positionnement.',
-  'Une demande de contenu peut révéler une absence de territoire éditorial.',
-  'Une baisse de performance peut venir d’un parcours client mal structuré.'
-];
 
 export function Method() {
   return (
     <div>
-      <section className="section-pad border-b border-brand-line bg-brand-offwhite">
-        <div className="page-shell max-w-5xl">
-          <p className="eyebrow mb-5">Méthode</p>
+      <section className="section-pad border-b border-brand-line/40">
+        <div className="page-shell max-w-4xl">
+          <p className="eyebrow mb-6">Méthode</p>
           <h1 className="display-xl">Clarifier. Structurer. Activer. Piloter.</h1>
-          <p className="mt-8 max-w-3xl text-lg font-medium leading-8 text-brand-ink/72">
+          <p className="mt-8 max-w-3xl text-lg font-light leading-9 text-brand-ink/60">
             Chaque accompagnement commence par une question simple : quel est le vrai problème derrière la demande exprimée ?
           </p>
         </div>
       </section>
 
       <section className="section-pad bg-white">
-        <div className="page-shell grid gap-6 md:grid-cols-3">
-          {deeper.map((item) => (
-            <div key={item} className="border-l-4 border-brand-accent bg-brand-offwhite p-6 text-lg font-bold leading-8 text-brand-black">
-              {item}
-            </div>
-          ))}
+        <div className="page-shell max-w-4xl">
+          <div className="space-y-8 font-serif text-xl font-light italic leading-relaxed text-brand-ink/70">
+            <p>Une demande de visibilité peut cacher un problème de positionnement.</p>
+            <p>Une demande de contenu peut révéler une absence de territoire éditorial.</p>
+            <p>Une baisse de performance peut venir d'un parcours client mal structuré.</p>
+          </div>
         </div>
       </section>
 
-      <section className="section-pad bg-brand-black text-white">
+      <section className="section-pad border-t border-brand-line/40">
         <div className="page-shell">
-          <div className="grid gap-6">
-            {methodSteps.map((step, index) => {
-              const Icon = icons[index];
-              return (
-                <article key={step.title} className="grid gap-6 border border-white/12 p-6 md:grid-cols-[180px_1fr_1.3fr] md:items-center">
-                  <div className="flex items-center gap-5">
-                    <span className="text-4xl font-black text-white/18">0{index + 1}</span>
-                    <Icon size={28} className="text-brand-accent" />
-                  </div>
-                  <h2 className="text-3xl font-black text-white">{step.title}</h2>
-                  <p className="text-base leading-7 text-white/68">{step.text}</p>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-pad bg-brand-offwhite">
-        <div className="page-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="eyebrow mb-4">Activation responsable</p>
-            <h2 className="display-lg">La production n’est activée que lorsqu’elle sert une stratégie validée.</h2>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {['Social media', 'Paid media', 'Influence', 'SEO / SEA', 'CRM', 'WhatsApp', 'Site web', 'Film & production'].map((lever) => (
-              <div key={lever} className="panel p-5 text-base font-bold text-brand-black">{lever}</div>
+          <div className="divide-y divide-brand-line/50">
+            {methodSteps.map((step, i) => (
+              <div key={step.title} className="grid gap-6 py-12 md:grid-cols-[auto_1fr_2fr] md:items-baseline md:gap-12">
+                <span className="step-number">0{i + 1}</span>
+                <h2 className="font-serif text-4xl font-normal text-brand-black">{step.title}</h2>
+                <p className="text-base font-light leading-9 text-brand-ink/60 md:max-w-lg">{step.text}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-pad bg-brand-accent text-white">
+      <section className="section-pad border-t border-brand-line/40 bg-brand-black text-white">
         <div className="page-shell flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-          <h2 className="display-lg max-w-3xl text-white">Le bon point de départ dépend de votre niveau de clarté.</h2>
-          <NavLink to="/par-ou-commencer" className="inline-flex items-center justify-center gap-3 bg-white px-7 py-5 text-sm font-black text-brand-black transition hover:bg-brand-black hover:text-white">
-            Trouver mon point d’entrée
-            <ArrowRight size={18} />
+          <h2 className="display-md max-w-2xl text-white">Le bon point de départ dépend de votre niveau de clarté.</h2>
+          <NavLink to="/par-ou-commencer" className="btn-primary bg-white text-brand-black hover:bg-brand-accent hover:text-white">
+            Trouver mon point d'entrée
+            <ArrowRight size={16} />
           </NavLink>
         </div>
       </section>
