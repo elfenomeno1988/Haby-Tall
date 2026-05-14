@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-brand-black: #050505;
+  --color-brand-ink: #101612;
+  --color-brand-green: #07351f;
+  --color-brand-accent: #00783f;
+  --color-brand-offwhite: #f8f8f4;
+  --color-brand-gray: #d9d9d6;
+  --color-brand-line: #c9cfca;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-brand-offwhite);
+    color: var(--color-brand-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-sans);
+    letter-spacing: 0;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .section-pad {
+    @apply py-20 md:py-28;
+  }
+
+  .eyebrow {
+    @apply text-xs font-extrabold uppercase text-brand-accent;
+    letter-spacing: 0;
+  }
+
+  .display-xl {
+    @apply text-[2.05rem] font-black leading-[1] text-brand-black sm:text-5xl lg:text-7xl;
+    letter-spacing: 0;
+  }
+
+  .display-lg {
+    @apply text-3xl font-black leading-[1.05] text-brand-black md:text-6xl;
+    letter-spacing: 0;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-3 rounded-none bg-brand-accent px-6 py-4 text-sm font-extrabold text-white transition hover:bg-brand-green;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-3 rounded-none border border-brand-black px-6 py-4 text-sm font-extrabold text-brand-black transition hover:bg-brand-black hover:text-white;
+  }
+
+  .panel {
+    @apply border border-brand-line bg-white/70;
+  }
+}
+
+@layer utilities {
+  .signature-fade {
+    mask-image: linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);
+  }
+
+  .brand-grid {
+    background-image:
+      linear-gradient(rgba(7, 53, 31, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(7, 53, 31, 0.08) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .quiet-noise {
+    position: relative;
+  }
+
+  .quiet-noise::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
