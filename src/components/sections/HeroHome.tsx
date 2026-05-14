@@ -49,16 +49,16 @@ export function HeroHome() {
                 <br />
                 communication 360
                 <br />
-                <span className="font-normal italic text-brand-offwhite/50">
+                <span className="font-semibold text-brand-offwhite/50">
                   & croissance digitale
                 </span>
               </h1>
             </ScrollReveal>
             <ScrollReveal delay={0.4}>
-              <p className="mt-6 max-w-[520px] text-[17px] leading-[1.75] text-brand-offwhite/55">
-                De la clarté stratégique à la croissance digitale. J&apos;aide
-                les marques à clarifier ce qu&apos;elles portent, structurer ce
-                qu&apos;elles doivent dire et activer les bons leviers.
+              <p className="mt-6 max-w-[520px] text-[17px] leading-[1.6] text-brand-offwhite/55">
+                J’aide les marques, PME, agences et porteurs de projets à
+                clarifier leur positionnement, structurer leur communication
+                et activer les bons leviers digitaux pour créer de la demande.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.55}>
@@ -83,20 +83,17 @@ export function HeroHome() {
           {/* ─── Right: Stats column with animated counters ─── */}
           <div className="hidden lg:flex lg:flex-col lg:justify-center lg:gap-10 lg:border-l lg:border-brand-offwhite/10 lg:pl-16">
             {[
-              { value: 15, suffix: "+", label: "Années d'expérience", sub: "en stratégie de marque, marketing et croissance digitale" },
-              { value: 50, suffix: "+", label: "Marques accompagnées", sub: "en Afrique francophone et au-delà" },
-              { value: 360, suffix: "°", label: "Approche intégrée", sub: "de la clarté stratégique à l'activation des leviers" },
+              { value: 15, suffix: "+", label: "Années d'expérience" },
+              { value: 50, suffix: "+", label: "Marques accompagnées" },
+              { value: 360, suffix: "°", label: "Approche intégrée" },
             ].map((s, i) => (
               <ScrollReveal key={s.label} delay={0.3 + i * 0.15}>
                 <div>
-                  <p className="font-heading text-[4.5rem] font-semibold leading-none tracking-tight text-brand-offwhite xl:text-[5.5rem]">
+                  <p className="font-heading text-[4.5rem] font-semibold leading-none text-brand-offwhite xl:text-[5.5rem]">
                     <AnimatedCounter value={s.value} suffix={s.suffix} duration={2.2} />
                   </p>
                   <p className="mt-2 text-[13px] font-bold uppercase tracking-[0.15em] text-brand-offwhite/50">
                     {s.label}
-                  </p>
-                  <p className="mt-1 text-[13px] leading-relaxed text-brand-offwhite/30">
-                    {s.sub}
                   </p>
                 </div>
               </ScrollReveal>

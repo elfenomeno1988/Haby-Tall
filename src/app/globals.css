@@ -27,8 +27,8 @@
   --color-brand-gray: var(--brand-gray);
   --color-brand-gray-light: var(--brand-gray-light);
   --color-brand-border: var(--brand-border);
-  --font-heading: var(--font-playfair);
-  --font-body: var(--font-inter);
+  --font-heading: var(--font-poppins);
+  --font-body: var(--font-poppins);
 }
 
 html {
@@ -51,9 +51,9 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading), Georgia, "Times New Roman", serif;
+  font-family: var(--font-heading), system-ui, sans-serif;
   color: var(--brand-anthracite);
-  letter-spacing: -0.025em;
+  letter-spacing: 0;
   line-height: 1.15;
 }
 
@@ -79,7 +79,7 @@ a {
 
 /* Large decorative number for steps / lists */
 .step-number {
-  font-family: var(--font-heading), Georgia, serif;
+  font-family: var(--font-heading), system-ui, sans-serif;
   font-size: 5rem;
   font-weight: 600;
   line-height: 1;
@@ -95,9 +95,9 @@ a {
 
 /* Stat value styling */
 .stat-value {
-  font-family: var(--font-heading), Georgia, serif;
+  font-family: var(--font-heading), system-ui, sans-serif;
   font-size: 4.5rem;
   font-weight: 600;
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }

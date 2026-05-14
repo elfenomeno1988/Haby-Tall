@@ -22,9 +22,9 @@ export default function Insights() {
               <h1 className="mt-4 font-heading text-[clamp(2.8rem,5.5vw,5rem)] font-semibold leading-[1.06]">
                 Réflexions sur la marque,
                 <br />le marketing{" "}
-                <span className="font-normal italic text-brand-gray">et la croissance.</span>
+                <span className="font-semibold text-brand-gray">et la croissance.</span>
               </h1>
-              <p className="mt-5 max-w-2xl text-[18px] leading-[1.8] text-brand-gray">
+              <p className="mt-5 max-w-2xl text-[18px] leading-[1.6] text-brand-gray">
                 Des articles pour clarifier les enjeux stratégiques, décoder les tendances et partager des méthodes actionnables.
               </p>
             </div>
@@ -51,7 +51,7 @@ export default function Insights() {
                   {/* Content */}
                   <div>
                     <h2 className="font-heading text-[1.5rem] font-semibold leading-snug lg:text-[1.8rem]">{post.title}</h2>
-                    <p className="mt-3 text-[16px] leading-[1.75] text-brand-gray">{post.excerpt}</p>
+                    <p className="mt-3 text-[16px] leading-[1.6] text-brand-gray">{post.excerpt}</p>
                   </div>
                   {/* CTA */}
                   <span className="inline-flex shrink-0 items-center gap-2 text-[13px] font-bold text-brand-green group-hover:text-brand-green-light">

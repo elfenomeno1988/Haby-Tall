@@ -31,11 +31,11 @@ export function MethodSection() {
               Clarifier. Structurer.
               <br />
               Activer.{" "}
-              <span className="font-normal italic text-brand-offwhite/40">
+              <span className="font-semibold text-brand-offwhite/40">
                 Piloter.
               </span>
             </h2>
-            <p className="mt-5 max-w-xl text-[17px] leading-[1.75] text-brand-offwhite/45">
+            <p className="mt-5 max-w-xl text-[17px] leading-[1.6] text-brand-offwhite/45">
               Une approche structurée en 4 étapes pour transformer la vision en
               croissance mesurable.
             </p>
@@ -65,23 +65,12 @@ export function MethodSection() {
                     <h3 className="mt-8 font-heading text-[2rem] font-semibold text-brand-offwhite lg:text-[2.4rem]">
                       {step.title}
                     </h3>
-                    <p className="mt-2 text-[15px] font-medium italic text-brand-offwhite/35">
+                    <p className="mt-2 text-[15px] font-medium text-brand-offwhite/35">
                       {step.tagline}
                     </p>
-                    <p className="mt-6 text-[15px] leading-[1.8] text-brand-offwhite/45">
+                    <p className="mt-6 text-[15px] leading-[1.6] text-brand-offwhite/45">
                       {step.description}
                     </p>
-                    <ul className="mt-8 space-y-2.5 border-t border-brand-offwhite/[0.06] pt-8">
-                      {step.details.slice(0, 3).map((d) => (
-                        <li
-                          key={d}
-                          className="flex items-start gap-3 text-[14px] leading-relaxed text-brand-offwhite/35"
-                        >
-                          <span className="mt-2 h-[5px] w-[5px] shrink-0 rounded-full bg-brand-offwhite/15" />
-                          {d}
-                        </li>
-                      ))}
-                    </ul>
                   </div>
                 </article>
               </StaggerItem>

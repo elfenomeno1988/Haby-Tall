@@ -9,6 +9,7 @@ import {
   GraduationCap,
 } from "lucide-react";
 import { ScrollReveal, Stagger, StaggerItem } from "@/components/ui/ScrollReveal";
+import { territories } from "@/data/site-content";
 import { assetPath } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -17,10 +18,10 @@ export const metadata: Metadata = {
 };
 
 const parcours = [
-  { icon: Building2, title: "Agence", description: "Direction de projets stratégiques pour des marques nationales et internationales. Pilotage de campagnes 360, branding et digital." },
-  { icon: Megaphone, title: "Annonceur", description: "Responsabilité marketing et communication côté client. Vision terrain, contraintes business et exigences de résultats." },
-  { icon: Lightbulb, title: "Entrepreneuriat & Conseil", description: "Accompagnement de marques et de dirigeants dans la structuration de leur stratégie de croissance. Approche sur mesure." },
-  { icon: GraduationCap, title: "Formation", description: "MSc Marketing Digital. Transmission en écoles de commerce et workshops professionnels. Pédagogie orientée action." },
+  { icon: Building2, title: "Agence", description: "Campagnes 360, branding et pilotage de projets stratégiques." },
+  { icon: Megaphone, title: "Annonceur", description: "Vision terrain, contraintes business et exigence de résultats." },
+  { icon: Lightbulb, title: "Entrepreneuriat & Conseil", description: "Structuration de marques, dirigeants et stratégies de croissance." },
+  { icon: GraduationCap, title: "Formation", description: "MSc Marketing Digital, workshops et pédagogie orientée action." },
 ];
 
 const convictions = [
@@ -45,13 +46,11 @@ export default function APropos() {
               <h1 className="mt-4 font-heading text-[clamp(2.8rem,5.5vw,5rem)] font-semibold leading-[1.06]">
                 Brand, Marketing
                 <br />& Digital Growth{" "}
-                <span className="font-normal italic text-brand-gray">Strategist</span>
+                <span className="font-semibold text-brand-gray">Strategist</span>
               </h1>
-              <p className="mt-5 max-w-2xl text-[18px] leading-[1.8] text-brand-gray">
-                Je n&apos;accompagne pas les marques pour &ldquo;faire plus de
-                communication&rdquo;. Je les aide à clarifier ce qu&apos;elles
-                portent, structurer ce qu&apos;elles doivent dire, activer les
-                bons leviers et piloter leur croissance avec cohérence.
+              <p className="mt-5 max-w-2xl text-[18px] leading-[1.6] text-brand-gray">
+                Clarifier la marque, structurer les messages et relier les
+                leviers digitaux à des objectifs business lisibles.
               </p>
             </div>
           </ScrollReveal>
@@ -68,7 +67,7 @@ export default function APropos() {
               <h2 className="mt-4 font-heading text-[clamp(2.2rem,4vw,3.5rem)] font-semibold leading-[1.1]">
                 15+ ans entre agence,
                 <br />annonceur{" "}
-                <span className="font-normal italic text-brand-gray">et conseil.</span>
+                <span className="font-semibold text-brand-gray">et conseil.</span>
               </h2>
             </div>
           </ScrollReveal>
@@ -85,13 +84,41 @@ export default function APropos() {
                     </div>
                     <div>
                       <h3 className="font-heading text-[1.5rem] font-semibold">{item.title}</h3>
-                      <p className="mt-3 text-[15px] leading-[1.8] text-brand-gray">{item.description}</p>
+                      <p className="mt-3 text-[15px] leading-[1.6] text-brand-gray">{item.description}</p>
                     </div>
                   </div>
                 </div>
               </StaggerItem>
             ))}
           </Stagger>
+        </div>
+      </section>
+
+      <section className="py-20 lg:py-28">
+        <div className="mx-auto grid max-w-[1400px] gap-10 px-6 lg:grid-cols-[380px_1fr] lg:px-16">
+          <ScrollReveal>
+            <div>
+              <div className="mb-5 h-[2px] w-12 bg-brand-green" />
+              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-brand-gray-light">
+                Territoires d’intervention
+              </p>
+              <h2 className="mt-4 font-heading text-[clamp(2.1rem,4vw,3.2rem)] font-bold leading-[1.1]">
+                Marque, marketing, digital et réputation.
+              </h2>
+            </div>
+          </ScrollReveal>
+          <div>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {territories.map((item) => (
+                <p key={item} className="rounded-sm bg-brand-cream/50 px-4 py-3 text-[14px] font-semibold text-brand-anthracite">
+                  {item}
+                </p>
+              ))}
+            </div>
+            <p className="mt-8 text-[16px] leading-relaxed text-brand-gray">
+              J’accompagne des marques et des projets en Côte d’Ivoire, en Afrique francophone, en France et sur des marchés hybrides.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -105,7 +132,7 @@ export default function APropos() {
                 <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-brand-gray-light">Convictions</p>
                 <h2 className="mt-4 font-heading text-[clamp(2.2rem,4vw,3.5rem)] font-semibold leading-[1.1]">
                   Ce que{" "}
-                  <span className="font-normal italic text-brand-gray">je crois.</span>
+                  <span className="font-semibold text-brand-gray">je crois.</span>
                 </h2>
               </div>
             </ScrollReveal>
@@ -116,7 +143,7 @@ export default function APropos() {
                     <span className="shrink-0 font-heading text-[3.5rem] font-semibold leading-none text-brand-green/10">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <p className="text-[18px] leading-[1.7] text-brand-anthracite italic lg:text-[20px]">
+                    <p className="text-[18px] leading-[1.7] text-brand-anthracite lg:text-[20px]">
                       {text}
                     </p>
                   </div>
@@ -146,15 +173,14 @@ export default function APropos() {
                 <h2 className="mt-4 font-heading text-[clamp(2.4rem,4.5vw,3.8rem)] font-semibold text-brand-offwhite leading-[1.08]">
                   Stratégie d&apos;abord.
                   <br />
-                  <span className="font-normal italic text-brand-offwhite/40">Toujours.</span>
+                  <span className="font-semibold text-brand-offwhite/40">Toujours.</span>
                 </h2>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.15}>
-              <div className="space-y-6 text-[17px] leading-[1.8] text-brand-offwhite/50 lg:pt-4 lg:text-[18px]">
-                <p>Une marque peut être visible sans être comprise. Elle peut publier souvent sans créer de préférence. Elle peut investir en publicité sans convertir.</p>
-                <p>Mon rôle est de remettre de l&apos;ordre : dans la marque, les messages, les canaux, les contenus, les parcours et les décisions.</p>
-                <p>Je travaille avec un écosystème de partenaires spécialisés en branding, identité visuelle, production audiovisuelle, développement web, paid media et réputation.</p>
+              <div className="space-y-6 text-[17px] leading-[1.6] text-brand-offwhite/50 lg:pt-4 lg:text-[18px]">
+                <p>Mon rôle : remettre de l&apos;ordre dans la marque, les messages, les canaux et les décisions.</p>
+                <p>Quand c&apos;est nécessaire, j&apos;active un écosystème de partenaires : branding, web, production, paid media et réputation.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -178,14 +204,14 @@ export default function APropos() {
                 <div className="mb-5 h-[2px] w-12 bg-brand-green" />
                 <h2 className="font-heading text-[clamp(2.4rem,4.5vw,3.8rem)] font-semibold leading-[1.08]">
                   Envie d&apos;en{" "}
-                  <span className="font-normal italic text-brand-gray">discuter ?</span>
+                  <span className="font-semibold text-brand-gray">discuter ?</span>
                 </h2>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <div className="lg:pl-16 lg:border-l lg:border-brand-border/40">
-                <p className="text-[18px] leading-[1.8] text-brand-gray">
-                  Commencez par une session de cadrage pour clarifier votre besoin, vos priorités et le bon format d&apos;accompagnement.
+                <p className="text-[18px] leading-[1.6] text-brand-gray">
+                  Une session de cadrage pour clarifier le besoin et choisir le bon format.
                 </p>
                 <Link href="/contact" className="mt-8 inline-flex items-center gap-3 rounded-sm bg-brand-green px-9 py-[18px] text-[15px] font-bold text-brand-offwhite transition-colors hover:bg-brand-green-light">
                   Réserver un cadrage

@@ -18,7 +18,7 @@ export function OffersPreview() {
               <h2 className="mt-4 font-heading text-[clamp(2.2rem,4vw,3.5rem)] font-semibold leading-[1.1]">
                 Des offres pensées
                 <br />
-                <span className="font-normal italic text-brand-gray">
+                <span className="font-semibold text-brand-gray">
                   pour chaque étape.
                 </span>
               </h2>
@@ -35,7 +35,7 @@ export function OffersPreview() {
 
         {/* ─── Offer cards grid ─── */}
         <Stagger className="grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.1}>
-          {offers.slice(0, 6).map((offer) => (
+          {offers.slice(0, 4).map((offer) => (
             <StaggerItem key={offer.slug}>
               <div className="group flex h-full flex-col justify-between border-l-[3px] border-brand-green/15 bg-brand-cream/40 p-8 transition-all hover:border-brand-green hover:bg-brand-cream/70 lg:p-10">
                 <div>
@@ -47,7 +47,7 @@ export function OffersPreview() {
                   <h3 className="font-heading text-[1.35rem] font-semibold leading-snug lg:text-[1.5rem]">
                     {offer.title}
                   </h3>
-                  <p className="mt-3 text-[15px] leading-[1.75] text-brand-gray">
+                  <p className="mt-3 text-[15px] leading-[1.6] text-brand-gray">
                     {offer.promise}
                   </p>
                 </div>

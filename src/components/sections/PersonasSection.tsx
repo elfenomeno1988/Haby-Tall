@@ -21,11 +21,11 @@ export function PersonasSection() {
                 Chaque situation
                 <br />
                 a sa réponse{" "}
-                <span className="font-normal italic text-brand-gray">
+                <span className="font-semibold text-brand-gray">
                   stratégique.
                 </span>
               </h2>
-              <p className="mt-4 text-[17px] leading-[1.75] text-brand-gray">
+              <p className="mt-4 text-[17px] leading-[1.6] text-brand-gray">
                 Identifiez votre enjeu. Trouvez l&apos;accompagnement
                 qui y répond.
               </p>
@@ -35,7 +35,7 @@ export function PersonasSection() {
           {/* ─── Cards stack ─── */}
           <Stagger className="space-y-4" stagger={0.1}>
             {personas.map((p, i) => {
-              const Icon = icons[i];
+              const Icon = icons[i % icons.length];
               return (
                 <StaggerItem key={i}>
                   <div className="group grid items-center gap-6 rounded-sm border border-brand-border/50 px-8 py-7 transition-all hover:border-brand-green/20 hover:bg-brand-cream/30 sm:grid-cols-[56px_1fr_auto] lg:px-10 lg:py-8">
@@ -46,8 +46,8 @@ export function PersonasSection() {
                       <p className="text-[17px] font-semibold leading-snug text-brand-anthracite">
                         {p.situation}
                       </p>
-                      <p className="mt-2 text-[15px] leading-relaxed text-brand-gray italic">
-                        &ldquo;{p.insight}&rdquo;
+                      <p className="mt-2 text-[14px] font-semibold text-brand-green">
+                        {p.insight}
                       </p>
                     </div>
                     <Link
