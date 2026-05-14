@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { offers } from "@/data/offers";
 import { ScrollReveal, Stagger, StaggerItem } from "@/components/ui/ScrollReveal";
+import { assetPath } from "@/lib/utils";
 
 export function OffersPreview() {
   return (
@@ -46,7 +47,7 @@ export function OffersPreview() {
                 <div className="group relative flex h-full flex-col justify-between overflow-hidden bg-brand-green p-8 transition-all lg:flex-row lg:items-center lg:gap-12 lg:p-12">
                   {/* Monogram watermark */}
                   <Image
-                    src="/brand/haby-tall-monogram-white.png"
+                    src={assetPath("/brand/haby-tall-monogram-white.png")}
                     alt=""
                     width={120}
                     height={120}

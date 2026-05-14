@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { assetPath } from "@/lib/utils";
 
 export function CtaFinal() {
   return (
@@ -9,7 +10,7 @@ export function CtaFinal() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(27,67,50,0.05),transparent_65%)]" />
       {/* Signature accent — bottom right */}
       <Image
-        src="/brand/haby-tall-signature-green.png"
+        src={assetPath("/brand/haby-tall-signature-green.png")}
         alt=""
         width={400}
         height={140}

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { assetPath } from "@/lib/utils";
 
 /**
  * HeroOverlap — A floating card that bridges the hero section
@@ -16,7 +17,7 @@ export function HeroOverlap() {
           <div className="relative overflow-hidden rounded-sm border border-brand-border/50 bg-brand-offwhite px-10 py-8 shadow-[0_8px_40px_rgba(0,0,0,0.08)] lg:px-14 lg:py-9">
             {/* Monogram watermark — subtle background accent */}
             <Image
-              src="/brand/haby-tall-monogram-green.png"
+              src={assetPath("/brand/haby-tall-monogram-green.png")}
               alt=""
               width={80}
               height={80}
@@ -28,7 +29,7 @@ export function HeroOverlap() {
               {/* Monogram badge */}
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-sm bg-brand-green">
                 <Image
-                  src="/brand/haby-tall-monogram-white.png"
+                  src={assetPath("/brand/haby-tall-monogram-white.png")}
                   alt="HT"
                   width={28}
                   height={28}

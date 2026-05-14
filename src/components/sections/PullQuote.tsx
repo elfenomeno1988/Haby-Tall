@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { assetPath } from "@/lib/utils";
 
 /**
  * PullQuote — Full-width italic quote band that acts as
@@ -11,7 +12,7 @@ export function PullQuote() {
     <section className="relative overflow-hidden border-y border-brand-border/40 bg-brand-cream/60 py-16 lg:py-20">
       {/* Signature accent — centered, very subtle */}
       <Image
-        src="/brand/haby-tall-signature-green.png"
+        src={assetPath("/brand/haby-tall-signature-green.png")}
         alt=""
         width={320}
         height={110}
@@ -30,7 +31,7 @@ export function PullQuote() {
 
           <div className="mt-6 flex items-center justify-center gap-3">
             <Image
-              src="/brand/haby-tall-monogram-green.png"
+              src={assetPath("/brand/haby-tall-monogram-green.png")}
               alt="HT"
               width={24}
               height={24}

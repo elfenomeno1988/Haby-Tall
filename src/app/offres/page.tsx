@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { offers, offerFamilies } from "@/data/offers";
 import { ScrollReveal, Stagger, StaggerItem } from "@/components/ui/ScrollReveal";
+import { assetPath } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Offres",
@@ -80,7 +81,7 @@ export default function Offres() {
       {/* ═══ CTA ═══ */}
       <section className="relative overflow-hidden bg-brand-green py-20 lg:py-28">
         <Image
-          src="/brand/haby-tall-signature-white.png"
+          src={assetPath("/brand/haby-tall-signature-white.png")}
           alt=""
           width={400}
           height={400}
