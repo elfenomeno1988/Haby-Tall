@@ -1,0 +1,91 @@
+name: Deploy branch previews to GitHub Pages
+
+on:
+  push:
+    branches:
+      - claude/peaceful-kepler-c0e996
+      - feat/premium-layout-creative
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout base branch
+        uses: actions/checkout@v4
+        with:
+          ref: claude/peaceful-kepler-c0e996
+          path: base
+
+      - name: Checkout enhanced branch
+        uses: actions/checkout@v4
+        with:
+          ref: feat/premium-layout-creative
+          path: enhanced
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build base version
+        working-directory: base
+        env:
+          NEXT_PUBLIC_BASE_PATH: /Haby-Tall/base
+        run: |
+          npm install
+          npm run build
+
+      - name: Build enhanced version
+        working-directory: enhanced
+        env:
+          NEXT_PUBLIC_BASE_PATH: /Haby-Tall/enhanced
+        run: |
+          npm install
+          npm run build
+
+      - name: Assemble Pages artifact
+        run: |
+          mkdir -p public/base public/enhanced
+          cp -R base/out/. public/base/
+          cp -R enhanced/out/. public/enhanced/
+          cat > public/index.html <<'HTML'
+          <!doctype html>
+          <html lang="fr">
+            <head>
+              <meta charset="utf-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1" />
+              <title>Haby Tall previews</title>
+              <style>
+                body { font-family: Arial, sans-serif; margin: 48px; color: #111; }
+                a { display: block; margin: 16px 0; color: #04753f; font-weight: 700; }
+              </style>
+            </head>
+            <body>
+              <h1>Haby Tall previews</h1>
+              <a href="./base/">Base version</a>
+              <a href="./enhanced/">Enhanced version</a>
+            </body>
+          </html>
+          HTML
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
