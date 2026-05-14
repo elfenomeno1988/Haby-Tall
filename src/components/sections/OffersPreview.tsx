@@ -70,9 +70,6 @@ export function OffersPreview() {
                   </div>
 
                   <div className="relative mt-8 flex shrink-0 flex-col items-start gap-4 border-t border-brand-offwhite/10 pt-6 lg:mt-0 lg:items-end lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
-                    <span className="text-[17px] font-bold text-brand-offwhite">
-                      {offer.price}
-                    </span>
                     <Link
                       href="/contact"
                       className="inline-flex items-center gap-2 rounded-sm bg-brand-offwhite px-7 py-3 text-[13px] font-bold text-brand-green transition-all hover:bg-brand-cream hover:scale-[1.02]"
@@ -98,10 +95,7 @@ export function OffersPreview() {
                       {offer.promise}
                     </p>
                   </div>
-                  <div className="mt-8 flex items-center justify-between border-t border-brand-border/40 pt-5">
-                    <span className="text-[15px] font-bold text-brand-anthracite">
-                      {offer.price}
-                    </span>
+                  <div className="mt-8 flex items-center justify-end border-t border-brand-border/40 pt-5">
                     <Link
                       href="/contact"
                       className="inline-flex items-center gap-1.5 text-[13px] font-bold text-brand-green transition-colors group-hover:text-brand-green-light"
