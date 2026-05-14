@@ -1,9 +1,11 @@
-name: Deploy to GitHub Pages
+name: Deploy branch previews to GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - claude/peaceful-kepler-c0e996
+      - feat/premium-layout-creative
+      - redesign/high-end
   workflow_dispatch:
 
 permissions:
@@ -13,39 +15,94 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
+      - name: Checkout base branch
         uses: actions/checkout@v4
+        with:
+          ref: claude/peaceful-kepler-c0e996
+          path: base
+
+      - name: Checkout enhanced branch
+        uses: actions/checkout@v4
+        with:
+          ref: feat/premium-layout-creative
+          path: enhanced
+
+      - name: Checkout Claude redesign branch
+        uses: actions/checkout@v4
+        with:
+          ref: redesign/high-end
+          path: claude
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Build base version
+        working-directory: base
+        env:
+          NEXT_PUBLIC_BASE_PATH: /Haby-Tall/base
+        run: |
+          npm install
+          npm run build
 
-      - name: Build
-        run: npm run build
+      - name: Build enhanced version
+        working-directory: enhanced
+        env:
+          NEXT_PUBLIC_BASE_PATH: /Haby-Tall/enhanced
+        run: |
+          npm install
+          npm run build
+
+      - name: Build Claude redesign version
+        working-directory: claude
+        env:
+          VITE_BASE_PATH: /Haby-Tall/claude/
+        run: |
+          npm install
+          npm run build
+
+      - name: Assemble Pages artifact
+        run: |
+          mkdir -p public/base public/enhanced public/claude
+          cp -R base/out/. public/base/
+          cp -R enhanced/out/. public/enhanced/
+          cp -R claude/dist/. public/claude/
+          cat > public/index.html <<'HTML'
+          <!doctype html>
+          <html lang="fr">
+            <head>
+              <meta charset="utf-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1" />
+              <title>Haby Tall previews</title>
+              <style>
+                body { font-family: Arial, sans-serif; margin: 48px; color: #111; }
+                a { display: block; margin: 16px 0; color: #04753f; font-weight: 700; }
+              </style>
+            </head>
+            <body>
+              <h1>Haby Tall previews</h1>
+              <a href="./base/">Base version</a>
+              <a href="./enhanced/">Enhanced version</a>
+              <a href="./claude/">Claude redesign</a>
+            </body>
+          </html>
+          HTML
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: public
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
