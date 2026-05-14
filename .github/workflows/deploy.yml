@@ -5,6 +5,7 @@ on:
     branches:
       - claude/peaceful-kepler-c0e996
       - feat/premium-layout-creative
+      - redesign/high-end
   workflow_dispatch:
 
 permissions:
@@ -35,6 +36,12 @@ jobs:
           ref: feat/premium-layout-creative
           path: enhanced
 
+      - name: Checkout Claude redesign branch
+        uses: actions/checkout@v4
+        with:
+          ref: redesign/high-end
+          path: claude
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -56,11 +63,20 @@ jobs:
           npm install
           npm run build
 
+      - name: Build Claude redesign version
+        working-directory: claude
+        env:
+          VITE_BASE_PATH: /Haby-Tall/claude/
+        run: |
+          npm install
+          npm run build
+
       - name: Assemble Pages artifact
         run: |
-          mkdir -p public/base public/enhanced
+          mkdir -p public/base public/enhanced public/claude
           cp -R base/out/. public/base/
           cp -R enhanced/out/. public/enhanced/
+          cp -R claude/dist/. public/claude/
           cat > public/index.html <<'HTML'
           <!doctype html>
           <html lang="fr">
@@ -77,6 +93,7 @@ jobs:
               <h1>Haby Tall previews</h1>
               <a href="./base/">Base version</a>
               <a href="./enhanced/">Enhanced version</a>
+              <a href="./claude/">Claude redesign</a>
             </body>
           </html>
           HTML
